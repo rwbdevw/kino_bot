@@ -832,7 +832,7 @@ async def next(call: types.CallbackQuery):
 
     pagination = NewsPagination(films=popular_films, width=2, back_prefix="news_show_back_", next_prefix="news_show_next_")
     kb = pagination.get_page_keyboard(cur_page=call.data, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(text="popular_films", state="*")
 async def popular_menu(call: types.CallbackQuery):
@@ -855,7 +855,7 @@ async def popular_menu(call: types.CallbackQuery):
 
     pagination = NewsPagination(films=popular_films, width=2, back_prefix="popular_filmsback_", next_prefix="popular_filmsnext_")
     kb = pagination.get_page_keyboard(cur_page=1, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(lambda c: c.data.startswith("popular_filmsnext_"))
 async def next(call: types.CallbackQuery):
@@ -879,7 +879,7 @@ async def next(call: types.CallbackQuery):
 
     pagination = NewsPagination(films=popular_films, width=2, back_prefix="popular_filmsback_", next_prefix="popular_filmsnext_")
     kb = pagination.get_page_keyboard(cur_page=call.data, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(lambda c: c.data.startswith("popular_filmsback_"))
 async def next(call: types.CallbackQuery):
@@ -903,7 +903,7 @@ async def next(call: types.CallbackQuery):
 
     pagination = NewsPagination(films=popular_films, width=2, back_prefix="popular_filmsback_", next_prefix="popular_filmsnext_")
     kb = pagination.get_page_keyboard(cur_page=call.data, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(text="popular_series", state="*")
 async def popular_menu(call: types.CallbackQuery):
@@ -926,7 +926,7 @@ async def popular_menu(call: types.CallbackQuery):
 
     pagination = NewsPagination(films=popular_films, width=2, back_prefix="popular_seriesback_", next_prefix="popular_seriesnext_")
     kb = pagination.get_page_keyboard(cur_page=1, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(lambda c: c.data.startswith("popular_seriesnext_"))
 async def next(call: types.CallbackQuery):
@@ -950,7 +950,7 @@ async def next(call: types.CallbackQuery):
 
     pagination = NewsPagination(films=popular_films, width=2, back_prefix="popular_seriesback_", next_prefix="popular_seriesnext_")
     kb = pagination.get_page_keyboard(cur_page=call.data, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>?? Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>?? Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(lambda c: c.data.startswith("popular_seriesback_"))
 async def next(call: types.CallbackQuery):
@@ -974,7 +974,7 @@ async def next(call: types.CallbackQuery):
 
     pagination = NewsPagination(films=popular_films, width=2, back_prefix="popular_seriesback_", next_prefix="popular_seriesnext_")
     kb = pagination.get_page_keyboard(cur_page=call.data, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 # Начало мультфильмов
 @dp.callback_query_handler(text="popular_cartoon", state="*")
@@ -998,7 +998,7 @@ async def popular_menu(call: types.CallbackQuery):
 
     pagination = NewsPagination(films=popular_films, width=2, back_prefix="popular_cartoonback_", next_prefix="popular_cartoonnext_")
     kb = pagination.get_page_keyboard(cur_page=1, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(lambda c: c.data.startswith("popular_cartoonnext_"))
 async def next(call: types.CallbackQuery):
@@ -1022,7 +1022,7 @@ async def next(call: types.CallbackQuery):
 
     pagination = NewsPagination(films=popular_films, width=2, back_prefix="popular_cartoonback_", next_prefix="popular_cartoonnext_")
     kb = pagination.get_page_keyboard(cur_page=call.data, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(lambda c: c.data.startswith("popular_cartoonback_"))
 async def next(call: types.CallbackQuery):
@@ -1046,7 +1046,7 @@ async def next(call: types.CallbackQuery):
 
     pagination = NewsPagination(films=popular_films, width=2, back_prefix="popular_cartoonback_", next_prefix="popular_cartoonnext_")
     kb = pagination.get_page_keyboard(cur_page=call.data, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 # Начало мультсериалов
 @dp.callback_query_handler(text="popular_cartoon_serials", state="*")
@@ -1070,7 +1070,7 @@ async def popular_menu(call: types.CallbackQuery):
 
     pagination = NewsPagination(films=popular_films, width=2, back_prefix="popular_cartoon_serials_back_", next_prefix="popular_cartoon_serials_next_")
     kb = pagination.get_page_keyboard(cur_page=1, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(lambda c: c.data.startswith("popular_cartoon_serials_next_"))
 async def next(call: types.CallbackQuery):
@@ -1094,7 +1094,7 @@ async def next(call: types.CallbackQuery):
 
     pagination = NewsPagination(films=popular_films, width=2, back_prefix="popular_cartoon_serials_back_", next_prefix="popular_cartoon_serials_next_")
     kb = pagination.get_page_keyboard(cur_page=call.data, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(lambda c: c.data.startswith("popular_cartoon_serials_back_"))
 async def next(call: types.CallbackQuery):
@@ -1118,7 +1118,7 @@ async def next(call: types.CallbackQuery):
 
     pagination = NewsPagination(films=popular_films, width=2, back_prefix="popular_cartoon_serials_back_", next_prefix="popular_cartoon_serials_next_")
     kb = pagination.get_page_keyboard(cur_page=call.data, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 # Начало аниме
 @dp.callback_query_handler(text="popular_anime", state="*")
@@ -1142,7 +1142,7 @@ async def popular_menu(call: types.CallbackQuery):
 
     pagination = NewsPagination(films=popular_films, width=2, back_prefix="popular_animeback_", next_prefix="popular_animenext_")
     kb = pagination.get_page_keyboard(cur_page=1, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(lambda c: c.data.startswith("popular_animenext_"))
 async def next(call: types.CallbackQuery):
@@ -1166,7 +1166,7 @@ async def next(call: types.CallbackQuery):
 
     pagination = NewsPagination(films=popular_films, width=2, back_prefix="popular_animeback_", next_prefix="popular_animenext_")
     kb = pagination.get_page_keyboard(cur_page=call.data, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(lambda c: c.data.startswith("popular_animeback_"))
 async def next(call: types.CallbackQuery):
@@ -1190,7 +1190,7 @@ async def next(call: types.CallbackQuery):
 
     pagination = NewsPagination(films=popular_films, width=2, back_prefix="popular_animeback_", next_prefix="popular_animenext_")
     kb = pagination.get_page_keyboard(cur_page=call.data, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 # Начало аниме-сериалов
 @dp.callback_query_handler(text="popular_anime_serials", state="*")
@@ -1214,7 +1214,7 @@ async def popular_menu(call: types.CallbackQuery):
 
     pagination = NewsPagination(films=popular_films, width=2, back_prefix="popular_anime_serials_back_", next_prefix="popular_anime_serials_next_")
     kb = pagination.get_page_keyboard(cur_page=1, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(lambda c: c.data.startswith("popular_anime_serials_next_"))
 async def next(call: types.CallbackQuery):
@@ -1238,7 +1238,7 @@ async def next(call: types.CallbackQuery):
 
     pagination = NewsPagination(films=popular_films, width=2, back_prefix="popular_anime_serials_back_", next_prefix="popular_anime_serials_next_")
     kb = pagination.get_page_keyboard(cur_page=call.data, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(lambda c: c.data.startswith("popular_anime_serials_back_"))
 async def next(call: types.CallbackQuery):
@@ -1262,7 +1262,7 @@ async def next(call: types.CallbackQuery):
 
     pagination = NewsPagination(films=popular_films, width=2, back_prefix="popular_anime_serials_back_", next_prefix="popular_anime_serials_next_")
     kb = pagination.get_page_keyboard(cur_page=call.data, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 # Начало ТВ-шоу
 @dp.callback_query_handler(text="popular_show", state="*")
@@ -1286,7 +1286,7 @@ async def popular_menu(call: types.CallbackQuery):
 
     pagination = NewsPagination(films=popular_films, width=2, back_prefix="popular_showback_", next_prefix="popular_shownext_")
     kb = pagination.get_page_keyboard(cur_page=1, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(lambda c: c.data.startswith("popular_shownext_"))
 async def next(call: types.CallbackQuery):
@@ -1310,7 +1310,7 @@ async def next(call: types.CallbackQuery):
 
     pagination = NewsPagination(films=popular_films, width=2, back_prefix="popular_showback_", next_prefix="popular_shownext_")
     kb = pagination.get_page_keyboard(cur_page=call.data, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(lambda c: c.data.startswith("popular_showback_"))
 async def next(call: types.CallbackQuery):
@@ -1334,15 +1334,15 @@ async def next(call: types.CallbackQuery):
 
     pagination = NewsPagination(films=popular_films, width=2, back_prefix="popular_showback_", next_prefix="popular_shownext_")
     kb = pagination.get_page_keyboard(cur_page=call.data, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(text="poisk", state="*")
 async def send(call: types.CallbackQuery):
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/poisk.png">🔍</a> Вы перешли в раздел <b>«Поиск»</b>, пожалуйста, выберите <b>тип поиска</b>, которым желаете воспользоваться.', reply_markup=search)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/poisk.png">🔍</a> Siz <b>«Qidirish»</b> bo‘limidasiz. Iltimos, foydalanmoqchi bo‘lgan <b>qidiruv turini</b> tanlang.', reply_markup=search)
 
 @dp.callback_query_handler(text="categories", state="*")
 async def send(call: types.CallbackQuery):
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/search_name.png">🔍</a> Вы перешли в раздел <b>«Поиск по названию»</b>, пожалуйста, выберите <b>категорию</b>, в которой желаете найти <b>видеоматериал</b>.', reply_markup=category)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/search_name.png">🔍</a> Siz <b>«Nomi bo‘yicha qidirish»</b> bo‘limidasiz. Iltimos, izlamoqchi bo‘lgan <b>kategoriyani</b> tanlang.', reply_markup=category)
 
 @dp.callback_query_handler(text="collections")
 async def send(call: types.CallbackQuery):
@@ -1350,7 +1350,7 @@ async def send(call: types.CallbackQuery):
         collections = json.load(f)
     pagination = InlinePagination(button_datas=[(collection_items[1], collection_items[0]) for collection_items in collections['data']], width=2)
     kb = pagination.get_page_keyboard(cur_page=1)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/collection.png">🎞️</a> Вы перешли в раздел <b>«Подборки»</b>, пожалуйста, выберите <b>подборку</b>, в которой желаете выбрать <b>видеоматериал</b> для просмотра.', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/collection.png">🎞️</a> Siz <b>«To‘plamlar»</b> bo‘limidasiz. Iltimos, ko‘rmoqchi bo‘lgan <b>to‘plam</b>ni tanlang.', reply_markup=kb)
 
 @dp.callback_query_handler(text="news")
 async def send(call: types.CallbackQuery):
@@ -1372,7 +1372,7 @@ async def send(call: types.CallbackQuery):
 
     pagination = NewsPagination(films=news, width=2)
     kb = pagination.get_page_keyboard(cur_page=1, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КиноПоиск:</b> {kinopoisk}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(lambda c: c.data.startswith("newsnext_"))
 async def next(call: types.CallbackQuery):
@@ -1396,7 +1396,7 @@ async def next(call: types.CallbackQuery):
 
     pagination = NewsPagination(films = news, width=2)
     kb = pagination.get_page_keyboard(cur_page=call.data, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КиноПоиск:</b> {kinopoisk}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(lambda c: c.data.startswith("newsback_"))
 async def next(call: types.CallbackQuery):
@@ -1421,14 +1421,14 @@ async def next(call: types.CallbackQuery):
 
     pagination = NewsPagination(films = news, width=2)
     kb = pagination.get_page_keyboard(cur_page=call.data, fave_status=film_id in favorite_ids)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КиноПоиск:</b> {kinopoisk}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(text="favorites")
 async def send(call: types.CallbackQuery):
     favorite_films = db.get_favorites(call.message.chat.id)
     # print(favorite_films)
     if len(favorite_films) == 0:
-        await call.answer('❗ Вы ещё ничего не добавляли в свои закладки..\n\n🎞️ Добавляйте в закладки любимые видеоматериалы и смотрите их в удобное для Вас время!', show_alert=True)
+        await call.answer('❗ Siz hali sevimlilarga hech narsa qo‘shmagansiz..\n\n🎞️ Sevimli videolarni sevimlilarga qo‘shing va o‘zingizga qulay vaqtda tomosha qiling!', show_alert=True)
     else:
         film_id = favorite_films[0][0]
         name = favorite_films[0][2]
@@ -1439,7 +1439,7 @@ async def send(call: types.CallbackQuery):
         type = category_list[favorite_films[0][7]]
         pagination = FavoritesPagination(films=favorite_films, width=2)
         kb = pagination.get_page_keyboard(cur_page=1)
-        await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+        await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(lambda c: c.data.startswith("del_favorite|"))
 async def next(call: types.CallbackQuery):
@@ -1449,9 +1449,9 @@ async def next(call: types.CallbackQuery):
     favorites_ids = [film[0] for film in favorites]
     if str(film_id) in favorites_ids:
         db.del_favorite(film_id)
-        await call.answer('❌ Вы удалили данный видеоматериал из своих закладок!', show_alert=True)
+        await call.answer('❌ Ushbu videoni sevimlilardan o‘chirdingiz!', show_alert=True)
     else:
-        await call.answer('❗Данный видеоматериал не находится в ваших закладках!', show_alert=True)
+        await call.answer('❗Ushbu video sevimlilaringizda mavjud emas!', show_alert=True)
 
 @dp.callback_query_handler(lambda c: c.data.startswith("add_favorite|"))
 async def next(call: types.CallbackQuery):
@@ -1473,9 +1473,9 @@ async def next(call: types.CallbackQuery):
             film_data = film_data[0]
             data = [film_id, call.message.chat.id, film_data[2], film_data[4], film_data[3], film_data[5], film_data[6], film_data[7]]
         db.add_favorite(data)
-        await call.answer('✅ Данный видеоматериал был успешно добавлен в ваши закладки!', show_alert=True)
+        await call.answer('✅ Ushbu video sevimlilarga muvaffaqiyatli qo‘shildi!', show_alert=True)
     else:
-        await call.answer('❗ Данный видеоматериал уже находится в ваших закладках!', show_alert=True)
+        await call.answer('❗ Ushbu video sevimlilaringizda allaqachon mavjud!', show_alert=True)
 
 @dp.callback_query_handler(lambda c: c.data.startswith("favenext_"))
 async def next(call: types.CallbackQuery):
@@ -1492,7 +1492,7 @@ async def next(call: types.CallbackQuery):
     url = favorite_films[number_film][5]
     type = favorite_films[number_film][7]
     type = category_list[type]
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(lambda c: c.data.startswith("faveback_"))
 async def next(call: types.CallbackQuery):
@@ -1509,7 +1509,7 @@ async def next(call: types.CallbackQuery):
     url = favorite_films[number_film][5]
     type = favorite_films[number_film][7]
     type = category_list[type]
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(lambda c: c.data.startswith("item_"))
 async def next(call: types.CallbackQuery):
@@ -1530,8 +1530,8 @@ async def next(call: types.CallbackQuery):
 
     kb = pagination.get_page_keyboard(cur_page=1, collection_id=collection_id, fave_status=film_id in favorite_ids)
 
-    kb.row(InlineKeyboardButton(text="🏠 Вернуться в меню", callback_data="back"))
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    kb.row(InlineKeyboardButton(text="🏠 Menyuga qaytish", callback_data="back"))
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(lambda c: c.data.startswith("n2_"))
 async def next(call: types.CallbackQuery):
@@ -1551,8 +1551,8 @@ async def next(call: types.CallbackQuery):
     type = collections_films[number_film][7]
     type = category_list[type]
     kb = pagination.get_page_keyboard(cur_page=call.data, collection_id=collection_id, fave_status=film_id in favorite_ids)
-    kb.row(InlineKeyboardButton(text="🏠 Вернуться в меню", callback_data="back"))
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    kb.row(InlineKeyboardButton(text="🏠 Menyuga qaytish", callback_data="back"))
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 
 @dp.callback_query_handler(lambda c: c.data.startswith("b2_"))
@@ -1573,8 +1573,8 @@ async def back_pag(call: types.CallbackQuery):
     type = collections_films[number_film][7]
     type = category_list[type]
     kb = pagination.get_page_keyboard(cur_page=call.data, collection_id=collection_id, fave_status=film_id in favorite_ids)
-    kb.row(InlineKeyboardButton(text="🏠 Вернуться в меню", callback_data="back"))
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>📁 Категория:</b> {type}\n<b>🎦 Жанр:</b> {genre}\n<b>🗓️ Год:</b> {year}', reply_markup=kb)
+    kb.row(InlineKeyboardButton(text="🏠 Menyuga qaytish", callback_data="back"))
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>📁 Kategoriya:</b> {type}\n<b>🎦 Janr:</b> {genre}\n<b>🗓️ Yil:</b> {year}', reply_markup=kb)
 
 @dp.callback_query_handler(lambda c: c.data.startswith("n_"))
 async def next(call: types.CallbackQuery):
@@ -1596,32 +1596,32 @@ async def back_pag(call: types.CallbackQuery):
 
 @dp.callback_query_handler(text="about", state="*")
 async def send(call: types.CallbackQuery):
-  await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/about.png">🎞️</a> <b><u>Kinozzz Bot</u></b> — <b>первый онлайн-кинотеатр</b> в Telegram, который предоставляет возможность <b><u>бесплатно</u></b> наслаждаться новинками <b>Российского</b> и <b>зарубежного</b> кинематографа.\n\n💡 <b>Основные возможности бота:</b>\n— Удобный поиск фильмов, сериалов, ТВ-шоу, мультфильмов и т.п. по названию;\n— <b>Подборки</b> видеоматериалов;\n— Функция <b>«Мои закладки»</b>, чтобы любимые фильмы и сериалы были всегда рядом;\n— Удобный плеер;\n— Высокое качество каждого видеоматериала;\n— Ежедневное пополнение новинками кино.', reply_markup=about)
+  await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/about.png">🎞️</a> <b><u>Kinozzz Bot</u></b> — <b>birinchi onlayn kinoteatr</b> Telegram’da, u sizga imkon beradi <b><u>bepul</u></b> yangiliklaridan bahramand bo‘lish <b>mahalliy</b> va <b>xorijiy</b> kinematografiyasi.\n\n💡 <b>Botning asosiy imkoniyatlari:</b>\n— Filmlar, seriallar, TV-shoular, multfilmlar va boshqalarni nomi bo‘yicha qulay qidirish;\n— <b>To‘plamlar</b> bo‘limi;\n— Funksiya <b>«Sevimlilarim»</b>, sevimli filmlar va seriallarni yoningizda saqlang;\n— Qulay pleyer;\n— Har bir videomaterialning yuqori sifati;\n— Har kuni yangilanishlar.', reply_markup=about)
 
 @dp.callback_query_handler(text="contacts", state="*")
 async def send(call: types.CallbackQuery):
-  await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<b><a href="https://bot.kinozzz.ru/poster/contacts.png">🔥</a> Мы всегда рады новым идеям и предложениям, которые будут полезны для нашей площадки!</b>\n\n📌 <i>В случае возникновения жалоб на авторские права, обращайтесь на e-mail: <b>admin@kinozzz.ru</b></i>', reply_markup=contacts)
+  await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<b><a href="https://bot.kinozzz.ru/poster/contacts.png">🔥</a> Platformamiz uchun foydali bo‘ladigan yangi g‘oya va takliflarga doimo ochiqmiz!</b>\n\n📌 <i>Mualliflik huquqi bo‘yicha shikoyatlar bo‘lsa, e-mail orqali murojaat qiling: <b>admin@kinozzz.ru</b></i>', reply_markup=contacts)
 
 @dp.message_handler(commands=['stats'])
 async def statistic(message: types.Message):
     if message.from_user.id == admin_id:
         inlinekeyboard_stats = types.InlineKeyboardMarkup()
-        inlinekeyboard_stats.add(types.InlineKeyboardButton(text="Общая статистика", callback_data="stat_all"))
-        inlinekeyboard_stats.add(types.InlineKeyboardButton(text="Статистика за сутки", callback_data="stat_day"))
-        await message.answer('👉 В данном разделе собрана вся статистика бота.\n\nВыберите категорию для просмотра:', reply_markup=inlinekeyboard_stats)
+        inlinekeyboard_stats.add(types.InlineKeyboardButton(text="Umumiy statistika", callback_data="stat_all"))
+        inlinekeyboard_stats.add(types.InlineKeyboardButton(text="So‘nggi sutka statistikasi", callback_data="stat_day"))
+        await message.answer('👉 Bu bo‘limda bot statistikasi jamlangan.\n\nKo‘rish uchun kategoriyani tanlang:', reply_markup=inlinekeyboard_stats)
 
     @dp.callback_query_handler(text="stat_all")
     async def send(call: types.CallbackQuery):
         await call.answer()
         with open('users_id.txt') as myfile:
             count = sum(1 for line in myfile)
-        await message.answer(f'👉 Общее количество пользователей бота: <b>{count}</b>')
+        await message.answer(f'👉 Bot foydalanuvchilari soni: <b>{count}</b>')
 
     @dp.callback_query_handler(text="stat_day")
     async def send(call: types.CallbackQuery):
         await call.answer()
         today = date.today()
-        await message.answer(f'👉 Новых пользователей за сутки: <b>{db.get_users_day_reg(today)}</b>')
+        await message.answer(f'👉 Sutkada qo‘shilgan yangi foydalanuvchilar: <b>{db.get_users_day_reg(today)}</b>')
 
 
 @dp.message_handler(commands=['all'])
@@ -1631,16 +1631,16 @@ async def send_all(message: types.Message):
             try:
                 await bot.send_message(user, message.text[message.text.find(" "):])
             except:
-                print(f'❗[ {user} ] —  нежелательный пользователь.\n\nСоветуем удалить его из базы данных.')
+                print(f'❗[ {user} ] —  nomaqbul foydalanuvchi.\n\nBazadan o‘chirishni tavsiya qilamiz.')
                 pass
-        await message.answer("✅ Рассылка успешно окончена!\nВсе пользователи бота получили сообщение.")
+        await message.answer("✅ Tarqatma muvaffaqiyatli yakunlandi!\nBotning barcha foydalanuvchilari xabarni oldi.")
     else:
-        await message.answer('❌ Вы не являетесь администратором данного бота.')
+        await message.answer('❌ Siz ushbu botning administratori emassiz.')
 
 #Поиск по id
 @dp.callback_query_handler(text="search_id", state="*")
 async def send(call: types.CallbackQuery):
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/search_id.png">🆔</a> Пожалуйста, введите и отправьте <b>ID видеоматериала</b> для поиска.\n\n❗<i><b>Важно:</b> указывайте корректный ID, да бы избежать неверную выдачу видеоматериала.</i>', reply_markup=go_poisk)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/search_id.png">🆔</a> Iltimos, qidirish uchun <b>videomaterial ID</b> ni kiriting va yuboring.\n\n❗<i><b>Muhim:</b> noto‘g‘ri natijalarni oldini olish uchun ID ni to‘g‘ri kiriting.</i>', reply_markup=go_poisk)
     await GetUserInfo.us_zapros_video.set()
     await call.answer()
     @dp.message_handler(state=GetUserInfo.us_zapros_video)
@@ -1679,18 +1679,18 @@ async def send(call: types.CallbackQuery):
      favorite_films = db.get_favorites(message.from_user.id)
      favorite_ids = [i[0] for i in favorite_films]
      play = types.InlineKeyboardMarkup()
-     play.add(types.InlineKeyboardButton(text="😍 Смотреть онлайн", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
+     play.add(types.InlineKeyboardButton(text="😍 Onlayn ko‘rish", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
      if film_id in favorite_ids:
-         play.row(InlineKeyboardButton(text="❌ Удалить из закладок", callback_data=f'del_favorite|{film_id}'))
+         play.row(InlineKeyboardButton(text="❌ Sevimlilardan o‘chirish", callback_data=f'del_favorite|{film_id}'))
      else:
-          play.row(InlineKeyboardButton(text="➕ Добавить в закладки", callback_data=f'add_favorite|{film_id}'))
-          play.add(InlineKeyboardButton(text="◀️ Назад", callback_data="poisk"),InlineKeyboardButton(text="🏠 Меню", callback_data="back"))
-     await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория: </b> {category_list[type]}\n<b>🎦 Жанр:</b> {genre3}\n<b>🗓️ Год:</b> {year}', reply_markup=play)
+          play.row(InlineKeyboardButton(text="➕ Sevimlilarga qo‘shish", callback_data=f'add_favorite|{film_id}'))
+          play.add(InlineKeyboardButton(text="◀️ Orqaga", callback_data="poisk"),InlineKeyboardButton(text="🏠 Menyu", callback_data="back"))
+     await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya: </b> {category_list[type]}\n<b>🎦 Janr:</b> {genre3}\n<b>🗓️ Yil:</b> {year}', reply_markup=play)
      await state.finish()
 
 @dp.callback_query_handler(text="films", state="*")
 async def send(call: types.CallbackQuery):
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/film.png">🔎</a> Укажите оригинальное название <b>фильма</b> для поиска.\n\n❗<i><b>Важно:</b> указывайте точное название для корректного поиска.</i>', reply_markup=inlinekeyboard2)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/film.png">🔎</a> Qidirish uchun <b>film</b>ning asl nomini kiriting.\n\n❗<i><b>Muhim:</b> to‘g‘ri qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard2)
     await GetUserInfo.us_zapros_film.set()
     await call.answer()
     @dp.message_handler(state=GetUserInfo.us_zapros_film)
@@ -1701,12 +1701,12 @@ async def send(call: types.CallbackQuery):
             response = requests.get("https://api1650820663.bhcesh.me/list?token=3794a7638b5863cc60d7b2b9274fa32e", params=params).json()['results']
             try:
                 if str(response).count('activate_time') > 1:
-                    resultal = '🔍 В нашей базе нашлось несколько <b>фильмов</b> с подобным названием: \n'
+                    resultal = '🔍 Bazamizda shu nomga o‘xshash bir nechta <b>filmlar</b> topildi: \n'
                     count_films = str(response).count('activate_time')
                     for i in range(count_films):
                         resultal += f"\n🔺<b>[ <code>{i}</code> ]</b> {response[i]['name']}"
                         resultal += f" | <b>{response[i]['year']}</b>"
-                    resultal += '\n\n✍️ Укажите цифру <b>фильма</b>, который вам нужен.'
+                    resultal += '\n\n✍️ Kerakli <b>film</b> raqamini kiriting.'
                     await message.answer(resultal, reply_markup=inlinekeyboard2)
                     await GetUserInfo.us_zapros_film_number.set()
                     @dp.message_handler(state=GetUserInfo.us_zapros_film_number)
@@ -1734,14 +1734,14 @@ async def send(call: types.CallbackQuery):
                         except KeyError:
                             quality = None
                         play = types.InlineKeyboardMarkup()
-                        play.add(types.InlineKeyboardButton(text="😍 Смотреть онлайн", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
+                        play.add(types.InlineKeyboardButton(text="😍 Onlayn ko‘rish", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
                         if film_id in favorite_ids:
-                            play.row(InlineKeyboardButton(text="❌ Удалить из закладок", callback_data=f'del_favorite|{film_id}'))
+                            play.row(InlineKeyboardButton(text="❌ Sevimlilardan o‘chirish", callback_data=f'del_favorite|{film_id}'))
                         else:
-                            play.row(InlineKeyboardButton(text="➕ Добавить в закладки", callback_data=f'add_favorite|{film_id}'))
-                        play.add(InlineKeyboardButton(text="◀️ Категории", callback_data="categories"),
-                        InlineKeyboardButton(text="🏠 Меню", callback_data="back"))
-                        await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория: </b> {category_list[type]}\n<b>🎦 Жанр:</b> {genre3}\n<b>🗓️ Год:</b> {year}', reply_markup=play)
+                            play.row(InlineKeyboardButton(text="➕ Sevimlilarga qo‘shish", callback_data=f'add_favorite|{film_id}'))
+                        play.add(InlineKeyboardButton(text="◀️ Kategoriyalar", callback_data="categories"),
+                        InlineKeyboardButton(text="🏠 Menyu", callback_data="back"))
+                        await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya: </b> {category_list[type]}\n<b>🎦 Janr:</b> {genre3}\n<b>🗓️ Yil:</b> {year}', reply_markup=play)
                         await state.finish()
                 else:
                     name = response[0]['name']
@@ -1774,22 +1774,22 @@ async def send(call: types.CallbackQuery):
                     favorite_films = db.get_favorites(message.from_user.id)
                     favorite_ids = [i[0] for i in favorite_films]
                     play = types.InlineKeyboardMarkup()
-                    play.add(types.InlineKeyboardButton(text="😍 Смотреть онлайн", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
+                    play.add(types.InlineKeyboardButton(text="😍 Onlayn ko‘rish", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
                     if film_id in favorite_ids:
-                        play.row(InlineKeyboardButton(text="❌ Удалить из закладок", callback_data=f'del_favorite|{film_id}'))
+                        play.row(InlineKeyboardButton(text="❌ Sevimlilardan o‘chirish", callback_data=f'del_favorite|{film_id}'))
                     else:
-                        play.row(InlineKeyboardButton(text="➕ Добавить в закладки", callback_data=f'add_favorite|{film_id}'))
-                    play.add(InlineKeyboardButton(text="◀️ Категории", callback_data="categories"),
-                    InlineKeyboardButton(text="🏠 Меню", callback_data="back"))
-                    await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория: </b> {category_list[type]}\n<b>🎦 Жанр:</b> {genre3}\n<b>🗓️ Год:</b> {year}', reply_markup=play)
+                        play.row(InlineKeyboardButton(text="➕ Sevimlilarga qo‘shish", callback_data=f'add_favorite|{film_id}'))
+                    play.add(InlineKeyboardButton(text="◀️ Kategoriyalar", callback_data="categories"),
+                    InlineKeyboardButton(text="🏠 Menyu", callback_data="back"))
+                    await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya: </b> {category_list[type]}\n<b>🎦 Janr:</b> {genre3}\n<b>🗓️ Yil:</b> {year}', reply_markup=play)
                     await state.finish()
             except:
-                await message.answer('<a href="https://bot.kinozzz.ru/poster/nosearch.png">😔</a> Не удалось найти <b>фильм</b> с подобным названием.\n\n❗<i>Введите корректное название для более точного поиска.</i>', reply_markup=inlinekeyboard2)
+                await message.answer('<a href="https://bot.kinozzz.ru/poster/nosearch.png">😔</a> Bu nomga o‘xshash <b>film</b> topilmadi.\n\n❗<i>To‘g‘riroq qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard2)
                 await state.finish()
 
 @dp.callback_query_handler(text="serials", state="*")
 async def send(call: types.CallbackQuery):
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/serial.png">🔎</a> Укажите оригинальное название <b>сериала</b> для поиска.\n\n❗<i><b>Важно:</b> указывайте точное название для корректного поиска.</i>', reply_markup=inlinekeyboard3)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/serial.png">🔎</a> Qidirish uchun <b>serial</b>ning asl nomini kiriting.\n\n❗<i><b>Muhim:</b> to‘g‘ri qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard3)
     await GetUserInfo.us_zapros_serial.set()
     await call.answer()
     @dp.message_handler(state=GetUserInfo.us_zapros_serial)
@@ -1800,12 +1800,12 @@ async def send(call: types.CallbackQuery):
             response = requests.get("https://api1650820663.bhcesh.me/list?token=3794a7638b5863cc60d7b2b9274fa32e", params=params).json()['results']
             try:
                 if str(response).count('activate_time') > 1:
-                    resultal = '🔍 В нашей базе нашлось несколько <b>сериалов</b> с подобным названием: \n'
+                    resultal = '🔍 Bazamizda shu nomga o‘xshash bir nechta <b>seriallar</b> topildi: \n'
                     count_serials = str(response).count('activate_time')
                     for i in range(count_serials):
                         resultal += f"\n🔺<b>[ <code>{i}</code> ]</b> {response[i]['name']}"
                         resultal += f" | <b>{response[i]['year']}</b>"
-                    resultal += '\n\n✍️ Укажите цифру <b>сериала</b>, который вам нужен.'
+                    resultal += '\n\n✍️ Kerakli <b>serial</b> raqamini kiriting.'
                     await message.answer(resultal, reply_markup=inlinekeyboard3)
                     await GetUserInfo.us_zapros_serial_number.set()
                     @dp.message_handler(state=GetUserInfo.us_zapros_serial_number)
@@ -1841,14 +1841,14 @@ async def send(call: types.CallbackQuery):
                         favorite_films = db.get_favorites(message.from_user.id)
                         favorite_ids = [i[0] for i in favorite_films]
                         play = types.InlineKeyboardMarkup()
-                        play.add(types.InlineKeyboardButton(text="😍 Смотреть онлайн", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
+                        play.add(types.InlineKeyboardButton(text="😍 Onlayn ko‘rish", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
                         if film_id in favorite_ids:
-                            play.row(InlineKeyboardButton(text="❌ Удалить из закладок", callback_data=f'del_favorite|{film_id}'))
+                            play.row(InlineKeyboardButton(text="❌ Sevimlilardan o‘chirish", callback_data=f'del_favorite|{film_id}'))
                         else:
-                            play.row(InlineKeyboardButton(text="➕ Добавить в закладки", callback_data=f'add_favorite|{film_id}'))
-                        play.add(InlineKeyboardButton(text="◀️ Категории", callback_data="categories"),
-                        InlineKeyboardButton(text="🏠 Меню", callback_data="back"))
-                        await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория: </b> {category_list[type]}\n<b>🎦 Жанр:</b> {genre2}\n<b>🗓️ Год:</b> {year}', reply_markup=play)
+                            play.row(InlineKeyboardButton(text="➕ Sevimlilarga qo‘shish", callback_data=f'add_favorite|{film_id}'))
+                        play.add(InlineKeyboardButton(text="◀️ Kategoriyalar", callback_data="categories"),
+                        InlineKeyboardButton(text="🏠 Menyu", callback_data="back"))
+                        await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya: </b> {category_list[type]}\n<b>🎦 Janr:</b> {genre2}\n<b>🗓️ Yil:</b> {year}', reply_markup=play)
                         await state.finish()
                 else:
                     film_id = response[0]['id']
@@ -1881,22 +1881,22 @@ async def send(call: types.CallbackQuery):
                     favorite_films = db.get_favorites(message.from_user.id)
                     favorite_ids = [i[0] for i in favorite_films]
                     play = types.InlineKeyboardMarkup()
-                    play.add(types.InlineKeyboardButton(text="😍 Смотреть онлайн", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
+                    play.add(types.InlineKeyboardButton(text="😍 Onlayn ko‘rish", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
                     if film_id in favorite_ids:
-                        play.row(InlineKeyboardButton(text="❌ Удалить из закладок", callback_data=f'del_favorite|{film_id}'))
+                        play.row(InlineKeyboardButton(text="❌ Sevimlilardan o‘chirish", callback_data=f'del_favorite|{film_id}'))
                     else:
-                        play.row(InlineKeyboardButton(text="➕ Добавить в закладки", callback_data=f'add_favorite|{film_id}'))
-                    play.add(InlineKeyboardButton(text="◀️ Категории", callback_data="categories"),
-                    InlineKeyboardButton(text="🏠 Меню", callback_data="back"))
-                    await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория: </b> {category_list[type]}\n<b>🎦 Жанр:</b> {genre3}\n<b>🗓️ Год:</b> {year}', reply_markup=play)
+                        play.row(InlineKeyboardButton(text="➕ Sevimlilarga qo‘shish", callback_data=f'add_favorite|{film_id}'))
+                    play.add(InlineKeyboardButton(text="◀️ Kategoriyalar", callback_data="categories"),
+                    InlineKeyboardButton(text="🏠 Menyu", callback_data="back"))
+                    await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya: </b> {category_list[type]}\n<b>🎦 Janr:</b> {genre3}\n<b>🗓️ Yil:</b> {year}', reply_markup=play)
                     await state.finish()
             except:
-                await message.answer('<a href="https://bot.kinozzz.ru/poster/nosearch.png">😔</a> Не удалось найти <b>сериал</b> с подобным названием.\n\n❗<i>Введите корректное название для более точного поиска.</i>', reply_markup=inlinekeyboard3)
+                await message.answer('<a href="https://bot.kinozzz.ru/poster/nosearch.png">😔</a> Bu nomga o‘xshash <b>serial</b> topilmadi.\n\n❗<i>To‘g‘riroq qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard3)
                 await state.finish()
 
 @dp.callback_query_handler(text="anime_films", state="*")
 async def send(call: types.CallbackQuery):
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/anime.png">🔎</a> Укажите оригинальное название <b>аниме-фильма</b> для поиска.\n\n❗<i><b>Важно:</b> указывайте точное название для корректного поиска.</i>', reply_markup=inlinekeyboard4)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/anime.png">🔎</a> Qidirish uchun <b>anime filmi</b>ning asl nomini kiriting.\n\n❗<i><b>Muhim:</b> to‘g‘ri qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard4)
     await GetUserInfo.us_zapros_animefilm.set()
     await call.answer()
     @dp.message_handler(state=GetUserInfo.us_zapros_animefilm)
@@ -1907,12 +1907,12 @@ async def send(call: types.CallbackQuery):
             response = requests.get("https://api1650820663.bhcesh.me/list?token=3794a7638b5863cc60d7b2b9274fa32e", params=params).json()['results']
             try:
                 if str(response).count('activate_time') > 1:
-                    resultal = '🔍 В нашей базе нашлось несколько <b>аниме-фильмов</b> с подобным названием: \n'
+                    resultal = '🔍 Bazamizda shu nomga o‘xshash bir nechta <b>anime filmlar</b> topildi: \n'
                     count_anime_films = str(response).count('activate_time')
                     for i in range(count_anime_films):
                         resultal += f"\n🔺<b>[ <code>{i}</code> ]</b> {response[i]['name']}"
                         resultal += f" | <b>{response[i]['year']}</b>"
-                    resultal += '\n\n✍️ Укажите цифру <b>аниме-фильма</b>, который вам нужен.'
+                    resultal += '\n\n✍️ Kerakli <b>anime filmi</b> raqamini kiriting.'
                     await message.answer(resultal, reply_markup=inlinekeyboard4)
                     await GetUserInfo.us_zapros_animefilm_number.set()
                     @dp.message_handler(state=GetUserInfo.us_zapros_animefilm_number)
@@ -1950,14 +1950,14 @@ async def send(call: types.CallbackQuery):
                         favorite_films = db.get_favorites(message.from_user.id)
                         favorite_ids = [i[0] for i in favorite_films]
                         play = types.InlineKeyboardMarkup()
-                        play.add(types.InlineKeyboardButton(text="😍 Смотреть онлайн", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
+                        play.add(types.InlineKeyboardButton(text="😍 Onlayn ko‘rish", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
                         if film_id in favorite_ids:
-                            play.row(InlineKeyboardButton(text="❌ Удалить из закладок", callback_data=f'del_favorite|{film_id}'))
+                            play.row(InlineKeyboardButton(text="❌ Sevimlilardan o‘chirish", callback_data=f'del_favorite|{film_id}'))
                         else:
-                            play.row(InlineKeyboardButton(text="➕ Добавить в закладки", callback_data=f'add_favorite|{film_id}'))
-                        play.add(InlineKeyboardButton(text="◀️ Категории", callback_data="categories"),
-                        InlineKeyboardButton(text="🏠 Меню", callback_data="back"))
-                        await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория: </b> {category_list[type]}\n<b>🎦 Жанр:</b> {genre3}\n<b>🗓️ Год:</b> {year}', reply_markup=play)
+                            play.row(InlineKeyboardButton(text="➕ Sevimlilarga qo‘shish", callback_data=f'add_favorite|{film_id}'))
+                        play.add(InlineKeyboardButton(text="◀️ Kategoriyalar", callback_data="categories"),
+                        InlineKeyboardButton(text="🏠 Menyu", callback_data="back"))
+                        await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya: </b> {category_list[type]}\n<b>🎦 Janr:</b> {genre3}\n<b>🗓️ Yil:</b> {year}', reply_markup=play)
                         await state.finish()
                 else:
                     film_id = response[0]['id']
@@ -1990,22 +1990,22 @@ async def send(call: types.CallbackQuery):
                     favorite_films = db.get_favorites(message.from_user.id)
                     favorite_ids = [i[0] for i in favorite_films]
                     play = types.InlineKeyboardMarkup()
-                    play.add(types.InlineKeyboardButton(text="😍 Смотреть онлайн", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
+                    play.add(types.InlineKeyboardButton(text="😍 Onlayn ko‘rish", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
                     if film_id in favorite_ids:
-                        play.row(InlineKeyboardButton(text="❌ Удалить из закладок", callback_data=f'del_favorite|{film_id}'))
+                        play.row(InlineKeyboardButton(text="❌ Sevimlilardan o‘chirish", callback_data=f'del_favorite|{film_id}'))
                     else:
-                        play.row(InlineKeyboardButton(text="➕ Добавить в закладки", callback_data=f'add_favorite|{film_id}'))
-                    play.add(InlineKeyboardButton(text="◀️ Категории", callback_data="categories"),
-                    InlineKeyboardButton(text="🏠 Меню", callback_data="back"))
-                    await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория: </b> {category_list[type]}\n<b>🎦 Жанр:</b> {genre3}\n<b>🗓️ Год:</b> {year}', reply_markup=play)
+                        play.row(InlineKeyboardButton(text="➕ Sevimlilarga qo‘shish", callback_data=f'add_favorite|{film_id}'))
+                    play.add(InlineKeyboardButton(text="◀️ Kategoriyalar", callback_data="categories"),
+                    InlineKeyboardButton(text="🏠 Menyu", callback_data="back"))
+                    await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya: </b> {category_list[type]}\n<b>🎦 Janr:</b> {genre3}\n<b>🗓️ Yil:</b> {year}', reply_markup=play)
                     await state.finish()
             except:
-                await message.answer('<a href="https://bot.kinozzz.ru/poster/nosearch.png">😔</a> Не удалось найти <b>аниме-фильм</b> с подобным названием.\n\n❗<i>Введите корректное название для более точного поиска.</i>', reply_markup=inlinekeyboard4)
+                await message.answer('<a href="https://bot.kinozzz.ru/poster/nosearch.png">😔</a> Bu nomga o‘xshash <b>anime film</b> topilmadi.\n\n❗<i>To‘g‘riroq qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard4)
                 await state.finish()
 
 @dp.callback_query_handler(text="cartoon_serials", state="*")
 async def send(call: types.CallbackQuery):
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/mserial.png">🔎</a> Укажите оригинальное название <b>аниме-сериала</b> для поиска.\n\n❗<i><b>Важно:</b> указывайте точное название для корректного поиска.</i>', reply_markup=inlinekeyboard5)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/mserial.png">🔎</a> Qidirish uchun <b>anime serial</b>ning asl nomini kiriting.\n\n❗<i><b>Muhim:</b> to‘g‘ri qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard5)
     await GetUserInfo.us_zapros_cartoonser.set()
     await call.answer()
     @dp.message_handler(state=GetUserInfo.us_zapros_cartoonser)
@@ -2016,12 +2016,12 @@ async def send(call: types.CallbackQuery):
             response = requests.get("https://api1650820663.bhcesh.me/list?token=3794a7638b5863cc60d7b2b9274fa32e", params=params).json()['results']
             try:
                 if str(response).count('activate_time') > 1:
-                    resultal = '🔍 В нашей базе нашлось несколько <b>мультсериалов</b> с подобным названием: \n'
+                    resultal = '🔍 Bazamizda shu nomga o‘xshash bir nechta <b>multseriallar</b> topildi: \n'
                     count_cartoon_serials = str(response).count('activate_time')
                     for i in range(count_cartoon_serials):
                         resultal += f"\n🔺<b>[ <code>{i}</code> ]</b> {response[i]['name']}"
                         resultal += f" | <b>{response[i]['year']}</b>"
-                    resultal += '\n\n✍️ Укажите цифру <b>мультсериала</b>, который вам нужен.'
+                    resultal += '\n\n✍️ Kerakli <b>multserial</b> raqamini kiriting.'
                     await message.answer(resultal, reply_markup=inlinekeyboard5)
                     await GetUserInfo.us_zapros_cartoonser_number.set()
                     @dp.message_handler(state=GetUserInfo.us_zapros_cartoonser_number)
@@ -2059,14 +2059,14 @@ async def send(call: types.CallbackQuery):
                         favorite_films = db.get_favorites(message.from_user.id)
                         favorite_ids = [i[0] for i in favorite_films]
                         play = types.InlineKeyboardMarkup()
-                        play.add(types.InlineKeyboardButton(text="😍 Смотреть онлайн", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
+                        play.add(types.InlineKeyboardButton(text="😍 Onlayn ko‘rish", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
                         if film_id in favorite_ids:
-                            play.row(InlineKeyboardButton(text="❌ Удалить из закладок", callback_data=f'del_favorite|{film_id}'))
+                            play.row(InlineKeyboardButton(text="❌ Sevimlilardan o‘chirish", callback_data=f'del_favorite|{film_id}'))
                         else:
-                            play.row(InlineKeyboardButton(text="➕ Добавить в закладки", callback_data=f'add_favorite|{film_id}'))
-                        play.add(InlineKeyboardButton(text="◀️ Категории", callback_data="categories"),
-                        InlineKeyboardButton(text="🏠 Меню", callback_data="back"))
-                        await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория: </b> {category_list[type]}\n<b>🎦 Жанр:</b> {genre3}\n<b>🗓️ Год:</b> {year}', reply_markup=play)
+                            play.row(InlineKeyboardButton(text="➕ Sevimlilarga qo‘shish", callback_data=f'add_favorite|{film_id}'))
+                        play.add(InlineKeyboardButton(text="◀️ Kategoriyalar", callback_data="categories"),
+                        InlineKeyboardButton(text="🏠 Menyu", callback_data="back"))
+                        await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya: </b> {category_list[type]}\n<b>🎦 Janr:</b> {genre3}\n<b>🗓️ Yil:</b> {year}', reply_markup=play)
                         await state.finish()
                 else:
                     film_id = response[0]['id']
@@ -2099,23 +2099,23 @@ async def send(call: types.CallbackQuery):
                     favorite_films = db.get_favorites(message.from_user.id)
                     favorite_ids = [i[0] for i in favorite_films]
                     play = types.InlineKeyboardMarkup()
-                    play.add(types.InlineKeyboardButton(text="😍 Смотреть онлайн", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
+                    play.add(types.InlineKeyboardButton(text="😍 Onlayn ko‘rish", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
                     if film_id in favorite_ids:
-                        play.row(InlineKeyboardButton(text="❌ Удалить из закладок", callback_data=f'del_favorite|{film_id}'))
+                        play.row(InlineKeyboardButton(text="❌ Sevimlilardan o‘chirish", callback_data=f'del_favorite|{film_id}'))
                     else:
-                        play.row(InlineKeyboardButton(text="➕ Добавить в закладки", callback_data=f'add_favorite|{film_id}'))
-                    play.add(InlineKeyboardButton(text="◀️ Категории", callback_data="categories"),
-                    InlineKeyboardButton(text="🏠 Меню", callback_data="back"))
-                    await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория: </b> {category_list[type]}\n<b>🎦 Жанр:</b> {genre3}\n<b>🗓️ Год:</b> {year}', reply_markup=play)
+                        play.row(InlineKeyboardButton(text="➕ Sevimlilarga qo‘shish", callback_data=f'add_favorite|{film_id}'))
+                    play.add(InlineKeyboardButton(text="◀️ Kategoriyalar", callback_data="categories"),
+                    InlineKeyboardButton(text="🏠 Menyu", callback_data="back"))
+                    await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya: </b> {category_list[type]}\n<b>🎦 Janr:</b> {genre3}\n<b>🗓️ Yil:</b> {year}', reply_markup=play)
                     await state.finish()
             except Exception as ex:
                 print(ex)
-                await message.answer('<a href="https://bot.kinozzz.ru/poster/nosearch.png">😔</a> Не удалось найти <b>мультсериал</b> с подобным названием.\n\n❗<i>Введите корректное название для более точного поиска.</i>', reply_markup=inlinekeyboard5)
+                await message.answer('<a href="https://bot.kinozzz.ru/poster/nosearch.png">😔</a> Bu nomga o‘xshash <b>multserial</b> topilmadi.\n\n❗<i>To‘g‘riroq qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard5)
                 await state.finish()
 
 @dp.callback_query_handler(text="cartoon", state="*")
 async def send(call: types.CallbackQuery):
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/mfilm.png">🔎</a> Укажите оригинальное название <b>мультфильма</b> для поиска.\n\n❗<i><b>Важно:</b> указывайте точное название для корректного поиска.</i>', reply_markup=inlinekeyboard6)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/mfilm.png">🔎</a> Qidirish uchun <b>multfilm</b>ning asl nomini kiriting.\n\n❗<i><b>Muhim:</b> to‘g‘ri qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard6)
     await GetUserInfo.us_zapros_cartoon.set()
     await call.answer()
     @dp.message_handler(state=GetUserInfo.us_zapros_cartoon)
@@ -2126,12 +2126,12 @@ async def send(call: types.CallbackQuery):
             response = requests.get("https://api1650820663.bhcesh.me/list?token=3794a7638b5863cc60d7b2b9274fa32e", params=params).json()['results']
             try:
                 if str(response).count('activate_time') > 1:
-                    resultal = '🔍 В нашей базе нашлось несколько <b>мультфильмов</b> с подобным названием: \n'
+                    resultal = '🔍 Bazamizda shu nomga o‘xshash bir nechta <b>multfilmlar</b> topildi: \n'
                     count_cartoon = str(response).count('activate_time')
                     for i in range(count_cartoon):
                         resultal += f"\n🔺<b>[ <code>{i}</code> ]</b> {response[i]['name']}"
                         resultal += f" | <b>{response[i]['year']}</b>"
-                    resultal += '\n\n✍️ Укажите цифру <b>мультфильма</b>, который вам нужен.'
+                    resultal += '\n\n✍️ Kerakli <b>multfilm</b> raqamini kiriting.'
                     await message.answer(resultal, reply_markup=inlinekeyboard6)
                     await GetUserInfo.us_zapros_cartoon_number.set()
                     @dp.message_handler(state=GetUserInfo.us_zapros_cartoon_number)
@@ -2169,14 +2169,14 @@ async def send(call: types.CallbackQuery):
                         favorite_films = db.get_favorites(message.from_user.id)
                         favorite_ids = [i[0] for i in favorite_films]
                         play = types.InlineKeyboardMarkup()
-                        play.add(types.InlineKeyboardButton(text="😍 Смотреть онлайн", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
+                        play.add(types.InlineKeyboardButton(text="😍 Onlayn ko‘rish", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
                         if film_id in favorite_ids:
-                            play.row(InlineKeyboardButton(text="❌ Удалить из закладок", callback_data=f'del_favorite|{film_id}'))
+                            play.row(InlineKeyboardButton(text="❌ Sevimlilardan o‘chirish", callback_data=f'del_favorite|{film_id}'))
                         else:
-                            play.row(InlineKeyboardButton(text="➕ Добавить в закладки", callback_data=f'add_favorite|{film_id}'))
-                        play.add(InlineKeyboardButton(text="◀️ Категории", callback_data="categories"),
-                        InlineKeyboardButton(text="🏠 Меню", callback_data="back"))
-                        await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория: </b> {category_list[type]}\n<b>🎦 Жанр:</b> {genre3}\n<b>🗓️ Год:</b> {year}', reply_markup=play)
+                            play.row(InlineKeyboardButton(text="➕ Sevimlilarga qo‘shish", callback_data=f'add_favorite|{film_id}'))
+                        play.add(InlineKeyboardButton(text="◀️ Kategoriyalar", callback_data="categories"),
+                        InlineKeyboardButton(text="🏠 Menyu", callback_data="back"))
+                        await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya: </b> {category_list[type]}\n<b>🎦 Janr:</b> {genre3}\n<b>🗓️ Yil:</b> {year}', reply_markup=play)
                         await state.finish()
                 else:
                     film_id = response[0]['id']
@@ -2209,22 +2209,22 @@ async def send(call: types.CallbackQuery):
                     favorite_films = db.get_favorites(message.from_user.id)
                     favorite_ids = [i[0] for i in favorite_films]
                     play = types.InlineKeyboardMarkup()
-                    play.add(types.InlineKeyboardButton(text="😍 Смотреть онлайн", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
+                    play.add(types.InlineKeyboardButton(text="😍 Onlayn ko‘rish", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
                     if film_id in favorite_ids:
-                        play.row(InlineKeyboardButton(text="❌ Удалить из закладок", callback_data=f'del_favorite|{film_id}'))
+                        play.row(InlineKeyboardButton(text="❌ Sevimlilardan o‘chirish", callback_data=f'del_favorite|{film_id}'))
                     else:
-                        play.row(InlineKeyboardButton(text="➕ Добавить в закладки", callback_data=f'add_favorite|{film_id}'))
-                    play.add(InlineKeyboardButton(text="◀️ Категории", callback_data="categories"),
-                    InlineKeyboardButton(text="🏠 Меню", callback_data="back"))
-                    await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория: </b> {category_list[type]}\n<b>🎦 Жанр:</b> {genre3}\n<b>🗓️ Год:</b> {year}', reply_markup=play)
+                        play.row(InlineKeyboardButton(text="➕ Sevimlilarga qo‘shish", callback_data=f'add_favorite|{film_id}'))
+                    play.add(InlineKeyboardButton(text="◀️ Kategoriyalar", callback_data="categories"),
+                    InlineKeyboardButton(text="🏠 Menyu", callback_data="back"))
+                    await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya: </b> {category_list[type]}\n<b>🎦 Janr:</b> {genre3}\n<b>🗓️ Yil:</b> {year}', reply_markup=play)
                     await state.finish()
             except:
-                await message.answer('<a href="https://bot.kinozzz.ru/poster/nosearch.png">😔</a> Не удалось найти <b>мультфильм</b> с подобным названием.\n\n❗<i>Введите корректное название для более точного поиска.</i>', reply_markup=inlinekeyboard6)
+                await message.answer('<a href="https://bot.kinozzz.ru/poster/nosearch.png">😔</a> Bu nomga o‘xshash <b>multfilm</b> topilmadi.\n\n❗<i>To‘g‘riroq qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard6)
                 await state.finish()
 
 @dp.callback_query_handler(text="anime_serials", state="*")
 async def send(call: types.CallbackQuery):
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/anime.png">🔎</a> Укажите оригинальное название <b>аниме-сериала</b> для поиска.\n\n❗<i><b>Важно:</b> указывайте точное название для корректного поиска.</i>', reply_markup=inlinekeyboard7)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/anime.png">🔎</a> Qidirish uchun <b>anime serial</b>ning asl nomini kiriting.\n\n❗<i><b>Muhim:</b> to‘g‘ri qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard7)
     await GetUserInfo.us_zapros_animeser.set()
     await call.answer()
     @dp.message_handler(state=GetUserInfo.us_zapros_animeser)
@@ -2235,12 +2235,12 @@ async def send(call: types.CallbackQuery):
             response = requests.get("https://api1650820663.bhcesh.me/list?token=3794a7638b5863cc60d7b2b9274fa32e", params=params).json()['results']
             try:
                 if str(response).count('activate_time') > 1:
-                    resultal = '🔍 В нашей базе нашлось несколько <b>аниме-сериалов</b> с подобным названием: \n'
+                    resultal = '🔍 Bazamizda shu nomga o‘xshash bir nechta <b>anime seriallar</b> topildi: \n'
                     count_anime_serials = str(response).count('activate_time')
                     for i in range(count_anime_serials):
                         resultal += f"\n🔺<b>[ <code>{i}</code> ]</b> {response[i]['name']}"
                         resultal += f" | <b>{response[i]['year']}</b>"
-                    resultal += '\n\n✍️ Укажите цифру <b>аниме-сериала</b>, который вам нужен.'
+                    resultal += '\n\n✍️ Kerakli <b>anime serial</b> raqamini kiriting.'
                     await message.answer(resultal, reply_markup=inlinekeyboard7)
                     await GetUserInfo.us_zapros_animeser_number.set()
                     @dp.message_handler(state=GetUserInfo.us_zapros_animeser_number)
@@ -2278,14 +2278,14 @@ async def send(call: types.CallbackQuery):
                         favorite_films = db.get_favorites(message.from_user.id)
                         favorite_ids = [i[0] for i in favorite_films]
                         play = types.InlineKeyboardMarkup()
-                        play.add(types.InlineKeyboardButton(text="😍 Смотреть онлайн", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
+                        play.add(types.InlineKeyboardButton(text="😍 Onlayn ko‘rish", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
                         if film_id in favorite_ids:
-                            play.row(InlineKeyboardButton(text="❌ Удалить из закладок", callback_data=f'del_favorite|{film_id}'))
+                            play.row(InlineKeyboardButton(text="❌ Sevimlilardan o‘chirish", callback_data=f'del_favorite|{film_id}'))
                         else:
-                            play.row(InlineKeyboardButton(text="➕ Добавить в закладки", callback_data=f'add_favorite|{film_id}'))
-                        play.add(InlineKeyboardButton(text="◀️ Категории", callback_data="categories"),
-                        InlineKeyboardButton(text="🏠 Меню", callback_data="back"))
-                        await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория: </b> {category_list[type]}\n<b>🎦 Жанр:</b> {genre3}\n<b>🗓️ Год:</b> {year}', reply_markup=play)
+                            play.row(InlineKeyboardButton(text="➕ Sevimlilarga qo‘shish", callback_data=f'add_favorite|{film_id}'))
+                        play.add(InlineKeyboardButton(text="◀️ Kategoriyalar", callback_data="categories"),
+                        InlineKeyboardButton(text="🏠 Menyu", callback_data="back"))
+                        await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya: </b> {category_list[type]}\n<b>🎦 Janr:</b> {genre3}\n<b>🗓️ Yil:</b> {year}', reply_markup=play)
                         await state.finish()
                 else:
                     film_id = response[0]['id']
@@ -2318,22 +2318,22 @@ async def send(call: types.CallbackQuery):
                     favorite_films = db.get_favorites(message.from_user.id)
                     favorite_ids = [i[0] for i in favorite_films]
                     play = types.InlineKeyboardMarkup()
-                    play.add(types.InlineKeyboardButton(text="😍 Смотреть онлайн", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
+                    play.add(types.InlineKeyboardButton(text="😍 Onlayn ko‘rish", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
                     if film_id in favorite_ids:
-                        play.row(InlineKeyboardButton(text="❌ Удалить из закладок", callback_data=f'del_favorite|{film_id}'))
+                        play.row(InlineKeyboardButton(text="❌ Sevimlilardan o‘chirish", callback_data=f'del_favorite|{film_id}'))
                     else:
-                        play.row(InlineKeyboardButton(text="➕ Добавить в закладки", callback_data=f'add_favorite|{film_id}'))
-                    play.add(InlineKeyboardButton(text="◀️ Категории", callback_data="categories"),
-                    InlineKeyboardButton(text="🏠 Меню", callback_data="back"))
-                    await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория: </b> {category_list[type]}\n<b>🎦 Жанр:</b> {genre3}\n<b>🗓️ Год:</b> {year}', reply_markup=play)
+                        play.row(InlineKeyboardButton(text="➕ Sevimlilarga qo‘shish", callback_data=f'add_favorite|{film_id}'))
+                    play.add(InlineKeyboardButton(text="◀️ Kategoriyalar", callback_data="categories"),
+                    InlineKeyboardButton(text="🏠 Menyu", callback_data="back"))
+                    await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya: </b> {category_list[type]}\n<b>🎦 Janr:</b> {genre3}\n<b>🗓️ Yil:</b> {year}', reply_markup=play)
                     await state.finish()
             except:
-                await message.answer('<a href="https://bot.kinozzz.ru/poster/nosearch.png">😔</a> Не удалось найти <b>аниме-сериал</b> с подобным названием.\n\n❗<i>Введите корректное название для более точного поиска.</i>', reply_markup=inlinekeyboard7)
+                await message.answer('<a href="https://bot.kinozzz.ru/poster/nosearch.png">😔</a> Bu nomga o‘xshash <b>anime serial</b> topilmadi.\n\n❗<i>To‘g‘riroq qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard7)
                 await state.finish()
 
 @dp.callback_query_handler(text="tv", state="*")
 async def send(call: types.CallbackQuery):
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/show.png">🔎</a> Укажите оригинальное название <b>ТВ-шоу</b> для поиска.\n\n❗<i><b>Важно:</b> указывайте точное название для корректного поиска.</i>', reply_markup=inlinekeyboard8)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/show.png">🔎</a> Qidirish uchun <b>TV-shou</b>ning asl nomini kiriting.\n\n❗<i><b>Muhim:</b> to‘g‘ri qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard8)
     await GetUserInfo.us_zapros_tv.set()
     await call.answer()
     @dp.message_handler(state=GetUserInfo.us_zapros_tv)
@@ -2344,12 +2344,12 @@ async def send(call: types.CallbackQuery):
             response = requests.get("https://api1650820663.bhcesh.me/list?token=3794a7638b5863cc60d7b2b9274fa32e", params=params).json()['results']
             try:
                 if str(response).count('activate_time') > 1:
-                    resultal = '🔍 В нашей базе нашлось несколько <b>ТВ-Шоу</b> с подобным названием: \n'
+                    resultal = '🔍 Bazamizda shu nomga o‘xshash bir nechta <b>TV-shoular</b> topildi: \n'
                     count_tv = str(response).count('activate_time')
                     for i in range(count_tv):
                         resultal += f"\n🔺<b>[ <code>{i}</code> ]</b> {response[i]['name']}"
                         resultal += f" | <b>{response[i]['year']}</b>"
-                    resultal += '\n\n✍️ Укажите цифру <b>ТВ-Шоу</b>, который вам нужен.'
+                    resultal += '\n\n✍️ Kerakli <b>TV-shou</b> raqamini kiriting.'
                     await message.answer(resultal, reply_markup=inlinekeyboard8)
                     await GetUserInfo.us_zapros_tv_number.set()
                     @dp.message_handler(state=GetUserInfo.us_zapros_tv_number)
@@ -2387,14 +2387,14 @@ async def send(call: types.CallbackQuery):
                         favorite_films = db.get_favorites(message.from_user.id)
                         favorite_ids = [i[0] for i in favorite_films]
                         play = types.InlineKeyboardMarkup()
-                        play.add(types.InlineKeyboardButton(text="😍 Смотреть онлайн", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
+                        play.add(types.InlineKeyboardButton(text="😍 Onlayn ko‘rish", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
                         if film_id in favorite_ids:
-                            play.row(InlineKeyboardButton(text="❌ Удалить из закладок", callback_data=f'del_favorite|{film_id}'))
+                            play.row(InlineKeyboardButton(text="❌ Sevimlilardan o‘chirish", callback_data=f'del_favorite|{film_id}'))
                         else:
-                            play.row(InlineKeyboardButton(text="➕ Добавить в закладки", callback_data=f'add_favorite|{film_id}'))
-                        play.add(InlineKeyboardButton(text="◀️ Категории", callback_data="categories"),
-                        InlineKeyboardButton(text="🏠 Меню", callback_data="back"))
-                        await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория: </b> {category_list[type]}\n<b>🎦 Жанр:</b> {genre3}\n<b>🗓️ Год:</b> {year}', reply_markup=play)
+                            play.row(InlineKeyboardButton(text="➕ Sevimlilarga qo‘shish", callback_data=f'add_favorite|{film_id}'))
+                        play.add(InlineKeyboardButton(text="◀️ Kategoriyalar", callback_data="categories"),
+                        InlineKeyboardButton(text="🏠 Menyu", callback_data="back"))
+                        await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya: </b> {category_list[type]}\n<b>🎦 Janr:</b> {genre3}\n<b>🗓️ Yil:</b> {year}', reply_markup=play)
                         await state.finish()
                 else:
                     film_id = response[0]['id']
@@ -2427,30 +2427,30 @@ async def send(call: types.CallbackQuery):
                     favorite_films = db.get_favorites(message.from_user.id)
                     favorite_ids = [i[0] for i in favorite_films]
                     play = types.InlineKeyboardMarkup()
-                    play.add(types.InlineKeyboardButton(text="😍 Смотреть онлайн", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
+                    play.add(types.InlineKeyboardButton(text="😍 Onlayn ko‘rish", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
                     if film_id in favorite_ids:
-                        play.row(InlineKeyboardButton(text="❌ Удалить из закладок", callback_data=f'del_favorite|{film_id}'))
+                        play.row(InlineKeyboardButton(text="❌ Sevimlilardan o‘chirish", callback_data=f'del_favorite|{film_id}'))
                     else:
-                        play.row(InlineKeyboardButton(text="➕ Добавить в закладки", callback_data=f'add_favorite|{film_id}'))
-                    play.add(InlineKeyboardButton(text="◀️ Категории", callback_data="categories"),
-                    InlineKeyboardButton(text="🏠 Меню", callback_data="back"))
-                    await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория: </b> {category_list[type]}\n<b>🎦 Жанр:</b> {genre3}\n<b>🗓️ Год:</b> {year}', reply_markup=play)
+                        play.row(InlineKeyboardButton(text="➕ Sevimlilarga qo‘shish", callback_data=f'add_favorite|{film_id}'))
+                    play.add(InlineKeyboardButton(text="◀️ Kategoriyalar", callback_data="categories"),
+                    InlineKeyboardButton(text="🏠 Menyu", callback_data="back"))
+                    await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya: </b> {category_list[type]}\n<b>🎦 Janr:</b> {genre3}\n<b>🗓️ Yil:</b> {year}', reply_markup=play)
                     await state.finish()
             except:
-                await message.answer('<a href="https://bot.kinozzz.ru/poster/nosearch.png">😔</a> Не удалось найти <b>ТВ-Шоу</b> с подобным названием.\n\n❗<i>Введите корректное название для более точного поиска.</i>', reply_markup=inlinekeyboard8)
+                await message.answer('<a href="https://bot.kinozzz.ru/poster/nosearch.png">😔</a> Bu nomga o‘xshash <b>TV-shou</b> topilmadi.\n\n❗<i>To‘g‘riroq qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard8)
                 await state.finish()
 
 @dp.message_handler(content_types=['text'])
 async def send_all(message):
-  await bot.send_message(message.from_user.id, f'❗К сожалению, ваш запрос не распознан!\n\n<a href="https://bot.kinozzz.ru/poster/error.png">🏠</a> <i>Вернитесь в <b>главное меню</b></i>.', reply_markup=exit)
+  await bot.send_message(message.from_user.id, f'❗Kechirasiz, so‘rovingiz tanilmadi!\n\n<a href="https://bot.kinozzz.ru/poster/error.png">🏠</a> <i><b>Asosiy menyu</b>ga qayting</i>.', reply_markup=exit)
 
 @dp.callback_query_handler(text="back", state="*")
 async def back(call: types.CallbackQuery, state: FSMContext):
     await state.finish()
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '🏠 Вы вернулись в <b>главное меню</b>.\n\n<a href="https://bot.kinozzz.ru/poster/general.png">🎦</a> Здесь вы можете выбрать <b>раздел</b>, в котором желаете найти или выбрать видеоматериал для просмотра.', reply_markup=inlinekeyboard, inline_message_id=call.inline_message_id)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '🏠 Siz <b>asosiy menyuga</b> qaytdingiz.\n\n<a href="https://bot.kinozzz.ru/poster/general.png">🎦</a> Bu yerda siz ko‘rmoqchi bo‘lgan videoni tanlash yoki qidirish uchun kerakli <b>bo‘lim</b>ni tanlashingiz mumkin.', reply_markup=inlinekeyboard, inline_message_id=call.inline_message_id)
 
 async def on_startup(dp: Dispatcher):
-    print('~~~ Kinozzz Bot успешно запущен! ~~~')
+    print('~~~ Kinozzz Bot muvaffaqiyatli ishga tushdi! ~~~')
     #await bot.send_message(chat_id=admin_id, text='🚀 <b>Kinozzz Bot</b> успешно запущен!\nОтправьте <b>/start</b> для обновления.')
     # await update_popular_anime()
     # await update_popular_mult()

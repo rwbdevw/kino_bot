@@ -72,7 +72,7 @@ contacts.add(InlineKeyboardButton(text="◀️ Orqaga", callback_data="back"))
 
 about = InlineKeyboardMarkup()
 # about.add(InlineKeyboardButton(text="🖊️ Вопросы / Ответы", callback_data="faq"))
-about.add(InlineKeyboardButton(text="◀️ Назад", callback_data="back"))
+about.add(InlineKeyboardButton(text="◀️ Orqaga", callback_data="back"))
 
 search = InlineKeyboardMarkup()
 search.add(InlineKeyboardButton(text="🆔 KinoPoisk ID bo‘yicha", callback_data="search_id"))
