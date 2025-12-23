@@ -1,0 +1,64 @@
+{
+    "data": [
+        {
+            "id": 56380,
+            "name": "Пузырь",
+            "year": 2022,
+            "quality": "FHD (1080p)",
+            "genre": "Фантастика, Мелодрама",
+            "type": "Аниме-фильмы",
+            "country": "Япония",
+            "poster": "https://img.imgilall.me/movies/franchise/5/6/3/8/0/0/0/0/0/0/610x900_56380.jpg",
+            "kinopoisk": null,
+            "imdb": "6.7"
+        },
+        {
+            "id": 61942,
+            "name": "Семь смертных грехов: Недовольство Эдинбурга",
+            "year": 2022,
+            "quality": "FHD (1080p)",
+            "genre": "Фэнтези, Боевик",
+            "type": "Аниме-фильмы",
+            "country": "Япония",
+            "poster": "https://img.imgilall.me/movies/franchise/6/1/9/4/2/0/0/0/0/0/610x900_61942.jpg",
+            "kinopoisk": null,
+            "imdb": "6.3"
+        },
+        {
+            "id": 60347,
+            "name": "Ван-Пис: Красный",
+            "year": 2022,
+            "quality": "SD",
+            "genre": "Приключения, Комедия, Музыка",
+            "type": "Аниме-фильмы",
+            "country": "Япония",
+            "poster": "https://img.imgilall.me/movies/franchise/6/0/3/4/7/0/0/0/0/0/610x900_60347.jpg",
+            "kinopoisk": null,
+            "imdb": "7.3"
+        },
+        {
+            "id": 57206,
+            "name": "Влюбленные в небеса",
+            "year": 2022,
+            "quality": "FHD (1080p)",
+            "genre": "Спортивный, Мелодрама",
+            "type": "Аниме-фильмы",
+            "country": "Япония",
+            "poster": "https://img.imgilall.me/movies/franchise/5/7/2/0/6/0/0/0/0/0/610x900_57206.jpg",
+            "kinopoisk": null,
+            "imdb": null
+        },
+        {
+            "id": 60004,
+            "name": "Покемон: хроники Аркеуса",
+            "year": 2022,
+            "quality": "FHD (1080p)",
+            "genre": "Приключения",
+            "type": "Аниме-фильмы",
+            "country": "Япония",
+            "poster": "https://img.imgilall.me/movies/franchise/6/0/0/0/4/0/0/0/0/0/610x900_60004.jpg",
+            "kinopoisk": null,
+            "imdb": null
+        }
+    ]
+}
