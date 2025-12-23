@@ -7,8 +7,12 @@ import aiohttp
 import re
 import sqlite3
 import json
+import os
+import threading
+from http.server import BaseHTTPRequestHandler, HTTPServer
 
 from datetime import date
+
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.dispatcher.filters.state import StatesGroup, State
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
@@ -342,7 +346,7 @@ async def update_popular_show():
             genre = ', '.join(genre)
         except KeyError:
             genre = ''
-        popular_show.append({'id':film_id, 'name': name, 'year': year,'quality':quality,'genre':genre, 'type':type,'country':country,'poster':poster, 'kinopoisk': kinopoisk, 'imdb': imdb})
+        popular_show.append({'id':film_id, 'name': name, 'year': year,'quality':quality,'genre':genre, 'type':type,'country':country,'poster':poster, 'imdb': imdb, 'kinopoisk': kinopoisk})
     data = {'data': popular_show}
     current_date = date.today()
     await add_popular_show(data)
@@ -1715,38 +1719,29 @@ async def send(call: types.CallbackQuery):
                         film_id = response[int(message.text)]['id']
                         poster = response[int(message.text)]['poster']
                         year = response[int(message.text)]['year']
+                        imdb = response[int(message.text)]['imdb']
+                        country = response[int(message.text)]['country']
+                        type = response[int(message.text)]['type']
                         genre = str(response[int(message.text)]['genre'])
                         file_merge = filter(str.isalpha, genre)
                         genre2 = "".join(file_merge)
                         genre3 = re.sub(r"(\w)([А-Я])", r"\1, \2", genre2)
                         try:
-                            country = response[int(message.text)]["country"].values()
-                            country = ', '.join(country)
-                        except:
-                            country = ''
-                        url = response[int(message.text)]['iframe_url']
-                        try:
                             kinopoisk = response[int(message.text)]["kinopoisk"]
-                        except:
+                        except KeyError:
                             kinopoisk = None
                         try:
-                            imdb = response[int(message.text)]["imdb"]
-                        except:
-                            imdb = None
-                        try:
                             quality = response[int(message.text)]["quality"]
-                        except:
+                        except KeyError:
                             quality = None
-                        type = response[int(message.text)]['type']
-                        favorite_films = db.get_favorites(message.from_user.id)
-                        favorite_ids = [i[0] for i in favorite_films]
                         play = types.InlineKeyboardMarkup()
                         play.add(types.InlineKeyboardButton(text="😍 Смотреть онлайн", url=f'https://bot.kinozzz.ru/play/?id={film_id}'))
                         if film_id in favorite_ids:
                             play.row(InlineKeyboardButton(text="❌ Удалить из закладок", callback_data=f'del_favorite|{film_id}'))
                         else:
                             play.row(InlineKeyboardButton(text="➕ Добавить в закладки", callback_data=f'add_favorite|{film_id}'))
-                        play.add(InlineKeyboardButton(text="◀️ Категории", callback_data="categories"),InlineKeyboardButton(text="🏠 Меню", callback_data="back"))
+                        play.add(InlineKeyboardButton(text="◀️ Категории", callback_data="categories"),
+                        InlineKeyboardButton(text="🏠 Меню", callback_data="back"))
                         await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория: </b> {category_list[type]}\n<b>🎦 Жанр:</b> {genre3}\n<b>🗓️ Год:</b> {year}', reply_markup=play)
                         await state.finish()
                 else:
@@ -1754,8 +1749,8 @@ async def send(call: types.CallbackQuery):
                     poster = response[0]['poster']
                     year = response[0]['year']
                     film_id = response[0]['id']
-                    genre = str(response[0]['genre'])
                     type = response[0]['type']
+                    genre = str(response[0]['genre'])
                     file_merge = filter(str.isalpha, genre)
                     genre2 = "".join(file_merge)
                     genre3 = re.sub(r"(\w)([А-Я])", r"\1, \2", genre2)
@@ -1767,15 +1762,15 @@ async def send(call: types.CallbackQuery):
                     url = response[0]['iframe_url']
                     try:
                         kinopoisk = response[0]["kinopoisk"]
-                    except:
+                    except KeyError:
                         kinopoisk = None
                     try:
                         imdb = response[0]["imdb"]
-                    except:
+                    except KeyError:
                         imdb = None
                     try:
                         quality = response[0]["quality"]
-                    except:
+                    except KeyError:
                         quality = None
                     favorite_films = db.get_favorites(message.from_user.id)
                     favorite_ids = [i[0] for i in favorite_films]
@@ -1785,7 +1780,7 @@ async def send(call: types.CallbackQuery):
                         play.row(InlineKeyboardButton(text="❌ Удалить из закладок", callback_data=f'del_favorite|{film_id}'))
                     else:
                         play.row(InlineKeyboardButton(text="➕ Добавить в закладки", callback_data=f'add_favorite|{film_id}'))
-                    play.add(types.InlineKeyboardButton(text="◀️ Категории", callback_data="categories"),
+                    play.add(InlineKeyboardButton(text="◀️ Категории", callback_data="categories"),
                     InlineKeyboardButton(text="🏠 Меню", callback_data="back"))
                     await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория: </b> {category_list[type]}\n<b>🎦 Жанр:</b> {genre3}\n<b>🗓️ Год:</b> {year}', reply_markup=play)
                     await state.finish()
@@ -1824,26 +1819,24 @@ async def send(call: types.CallbackQuery):
                         poster = response[int(message.text)]['poster']
                         year = response[int(message.text)]['year']
                         genre = str(response[int(message.text)]['genre'])
-                        file_merge = filter(str.isalpha, genre)
-                        genre2 = "".join(file_merge)
                         type = response[int(message.text)]['type']
                         try:
                             country = response[int(message.text)]["country"].values()
                             country = ', '.join(country)
                         except:
                             country = ''
-                        genre3 = re.sub(r"(\w)([А-Я])", r"\1, \2", genre2)
+                        genre2 = re.sub(r"(\w)([А-Я])", r"\1, \2", genre)
                         try:
                             kinopoisk = response[int(message.text)]["kinopoisk"]
-                        except:
+                        except KeyError:
                             kinopoisk = None
                         try:
                             imdb = response[int(message.text)]["imdb"]
-                        except:
+                        except KeyError:
                             imdb = None
                         try:
                             quality = response[int(message.text)]["quality"]
-                        except:
+                        except KeyError:
                             quality = None
                         url = response[int(message.text)]['iframe_url']
                         favorite_films = db.get_favorites(message.from_user.id)
@@ -1856,7 +1849,7 @@ async def send(call: types.CallbackQuery):
                             play.row(InlineKeyboardButton(text="➕ Добавить в закладки", callback_data=f'add_favorite|{film_id}'))
                         play.add(InlineKeyboardButton(text="◀️ Категории", callback_data="categories"),
                         InlineKeyboardButton(text="🏠 Меню", callback_data="back"))
-                        await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория: </b> {category_list[type]}\n<b>🎦 Жанр:</b> {genre3}\n<b>🗓️ Год:</b> {year}', reply_markup=play)
+                        await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Название:</b> {name}\n<b>🏅 КП:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Страна:</b> {country}\n<b>📀 Качество:</b> {quality}\n<b>📁 Категория: </b> {category_list[type]}\n<b>🎦 Жанр:</b> {genre2}\n<b>🗓️ Год:</b> {year}', reply_markup=play)
                         await state.finish()
                 else:
                     film_id = response[0]['id']
@@ -1876,15 +1869,15 @@ async def send(call: types.CallbackQuery):
                     url = response[0]['iframe_url']
                     try:
                         kinopoisk = response[0]["kinopoisk"]
-                    except:
+                    except KeyError:
                         kinopoisk = None
                     try:
                         imdb = response[0]["imdb"]
-                    except:
+                    except KeyError:
                         imdb = None
                     try:
                         quality = response[0]["quality"]
-                    except:
+                    except KeyError:
                         quality = None
                     favorite_films = db.get_favorites(message.from_user.id)
                     favorite_ids = [i[0] for i in favorite_films]
@@ -1944,15 +1937,15 @@ async def send(call: types.CallbackQuery):
                         genre3 = re.sub(r"(\w)([А-Я])", r"\1, \2", genre2)
                         try:
                             kinopoisk = response[int(message.text)]["kinopoisk"]
-                        except:
+                        except KeyError:
                             kinopoisk = None
                         try:
                             imdb = response[int(message.text)]["imdb"]
-                        except:
+                        except KeyError:
                             imdb = None
                         try:
                             quality = response[int(message.text)]["quality"]
-                        except:
+                        except KeyError:
                             quality = None
                         url = response[int(message.text)]['iframe_url']
                         favorite_films = db.get_favorites(message.from_user.id)
@@ -1977,7 +1970,7 @@ async def send(call: types.CallbackQuery):
                     try:
                         country = response[0]["country"].values()
                         country = ', '.join(country)
-                    except:
+                    except KeyError:
                         country = ''
                     file_merge = filter(str.isalpha, genre)
                     genre2 = "".join(file_merge)
@@ -1985,15 +1978,15 @@ async def send(call: types.CallbackQuery):
                     url = response[0]['iframe_url']
                     try:
                         kinopoisk = response[0]["kinopoisk"]
-                    except:
+                    except KeyError:
                         kinopoisk = None
                     try:
                         imdb = response[0]["imdb"]
-                    except:
+                    except KeyError:
                         imdb = None
                     try:
                         quality = response[0]["quality"]
-                    except:
+                    except KeyError:
                         quality = None
                     favorite_films = db.get_favorites(message.from_user.id)
                     favorite_ids = [i[0] for i in favorite_films]
@@ -2053,15 +2046,15 @@ async def send(call: types.CallbackQuery):
                         genre3 = re.sub(r"(\w)([А-Я])", r"\1, \2", genre2)
                         try:
                             kinopoisk = response[int(message.text)]["kinopoisk"]
-                        except:
+                        except KeyError:
                             kinopoisk = None
                         try:
                             imdb = response[int(message.text)]["imdb"]
-                        except:
+                        except KeyError:
                             imdb = None
                         try:
                             quality = response[int(message.text)]["quality"]
-                        except:
+                        except KeyError:
                             quality = None
                         url = response[int(message.text)]['iframe_url']
                         favorite_films = db.get_favorites(message.from_user.id)
@@ -2085,7 +2078,7 @@ async def send(call: types.CallbackQuery):
                     try:
                         country = response[0]["country"].values()
                         country = ', '.join(country)
-                    except:
+                    except KeyError:
                         country = ''
                     type = response[0]['type']
                     file_merge = filter(str.isalpha, genre)
@@ -2094,15 +2087,15 @@ async def send(call: types.CallbackQuery):
                     url = response[0]['iframe_url']
                     try:
                         kinopoisk = response[0]["kinopoisk"]
-                    except:
+                    except KeyError:
                         kinopoisk = None
                     try:
                         imdb = response[0]["imdb"]
-                    except:
+                    except KeyError:
                         imdb = None
                     try:
                         quality = response[0]["quality"]
-                    except:
+                    except KeyError:
                         quality = None
                     favorite_films = db.get_favorites(message.from_user.id)
                     favorite_ids = [i[0] for i in favorite_films]
@@ -2153,7 +2146,7 @@ async def send(call: types.CallbackQuery):
                         try:
                             country = response[int(message.text)]["country"].values()
                             country = ', '.join(country)
-                        except:
+                        except KeyError:
                             country = ''
                         type = response[int(message.text)]['type']
                         year = response[int(message.text)]['year']
@@ -2163,15 +2156,15 @@ async def send(call: types.CallbackQuery):
                         genre3 = re.sub(r"(\w)([А-Я])", r"\1, \2", genre2)
                         try:
                             kinopoisk = response[int(message.text)]["kinopoisk"]
-                        except:
+                        except KeyError:
                             kinopoisk = None
                         try:
                             imdb = response[int(message.text)]["imdb"]
-                        except:
+                        except KeyError:
                             imdb = None
                         try:
                             quality = response[int(message.text)]["quality"]
-                        except:
+                        except KeyError:
                             quality = None
                         url = response[int(message.text)]['iframe_url']
                         favorite_films = db.get_favorites(message.from_user.id)
@@ -2195,7 +2188,7 @@ async def send(call: types.CallbackQuery):
                     try:
                         country = response[0]["country"].values()
                         country = ', '.join(country)
-                    except:
+                    except KeyError:
                         country = ''
                     type = response[0]['type']
                     file_merge = filter(str.isalpha, genre)
@@ -2204,15 +2197,15 @@ async def send(call: types.CallbackQuery):
                     url = response[0]['iframe_url']
                     try:
                         kinopoisk = response[0]["kinopoisk"]
-                    except:
+                    except KeyError:
                         kinopoisk = None
                     try:
                         imdb = response[0]["imdb"]
-                    except:
+                    except KeyError:
                         imdb = None
                     try:
                         quality = response[0]["quality"]
-                    except:
+                    except KeyError:
                         quality = None
                     favorite_films = db.get_favorites(message.from_user.id)
                     favorite_ids = [i[0] for i in favorite_films]
@@ -2261,7 +2254,7 @@ async def send(call: types.CallbackQuery):
                         try:
                             country = response[int(message.text)]["country"].values()
                             country = ', '.join(country)
-                        except:
+                        except KeyError:
                             country = ''
                         type = response[int(message.text)]['type']
                         poster = response[int(message.text)]['poster']
@@ -2272,15 +2265,15 @@ async def send(call: types.CallbackQuery):
                         genre3 = re.sub(r"(\w)([А-Я])", r"\1, \2", genre2)
                         try:
                             kinopoisk = response[int(message.text)]["kinopoisk"]
-                        except:
+                        except KeyError:
                             kinopoisk = None
                         try:
                             imdb = response[int(message.text)]["imdb"]
-                        except:
+                        except KeyError:
                             imdb = None
                         try:
                             quality = response[int(message.text)]["quality"]
-                        except:
+                        except KeyError:
                             quality = None
                         url = response[int(message.text)]['iframe_url']
                         favorite_films = db.get_favorites(message.from_user.id)
@@ -2304,7 +2297,7 @@ async def send(call: types.CallbackQuery):
                     try:
                         country = response[0]["country"].values()
                         country = ', '.join(country)
-                    except:
+                    except KeyError:
                         country = ''
                     file_merge = filter(str.isalpha, genre)
                     type = response[0]['type']
@@ -2313,15 +2306,15 @@ async def send(call: types.CallbackQuery):
                     url = response[0]['iframe_url']
                     try:
                         kinopoisk = response[0]["kinopoisk"]
-                    except:
+                    except KeyError:
                         kinopoisk = None
                     try:
                         imdb = response[0]["imdb"]
-                    except:
+                    except KeyError:
                         imdb = None
                     try:
                         quality = response[0]["quality"]
-                    except:
+                    except KeyError:
                         quality = None
                     favorite_films = db.get_favorites(message.from_user.id)
                     favorite_ids = [i[0] for i in favorite_films]
@@ -2370,7 +2363,7 @@ async def send(call: types.CallbackQuery):
                         try:
                             country = response[int(message.text)]["country"].values()
                             country = ', '.join(country)
-                        except:
+                        except KeyError:
                             country = ''
                         poster = response[int(message.text)]['poster']
                         year = response[int(message.text)]['year']
@@ -2381,15 +2374,15 @@ async def send(call: types.CallbackQuery):
                         genre3 = re.sub(r"(\w)([А-Я])", r"\1, \2", genre2)
                         try:
                             kinopoisk = response[int(message.text)]["kinopoisk"]
-                        except:
+                        except KeyError:
                             kinopoisk = None
                         try:
                             imdb = response[int(message.text)]["imdb"]
-                        except:
+                        except KeyError:
                             imdb = None
                         try:
                             quality = response[int(message.text)]["quality"]
-                        except:
+                        except KeyError:
                             quality = None
                         url = response[int(message.text)]['iframe_url']
                         favorite_films = db.get_favorites(message.from_user.id)
@@ -2413,7 +2406,7 @@ async def send(call: types.CallbackQuery):
                     try:
                         country = response[0]["country"].values()
                         country = ', '.join(country)
-                    except:
+                    except KeyError:
                         country = ''
                     type = response[0]['type']
                     file_merge = filter(str.isalpha, genre)
@@ -2422,15 +2415,15 @@ async def send(call: types.CallbackQuery):
                     url = response[0]['iframe_url']
                     try:
                         kinopoisk = response[0]["kinopoisk"]
-                    except:
+                    except KeyError:
                         kinopoisk = None
                     try:
                         imdb = response[0]["imdb"]
-                    except:
+                    except KeyError:
                         imdb = None
                     try:
                         quality = response[0]["quality"]
-                    except:
+                    except KeyError:
                         quality = None
                     favorite_films = db.get_favorites(message.from_user.id)
                     favorite_ids = [i[0] for i in favorite_films]
@@ -2477,10 +2470,26 @@ async def on_startup(dp: Dispatcher):
     scheduler.add_job(update_collections_films, 'cron', hour=7, minute=10)
     scheduler.add_job(update_collections, 'cron', hour=23, minute=40)
 
+class SimpleRequestHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header('Content-type', 'text/plain; charset=utf-8')
+        self.end_headers()
+        self.wfile.write(b"OK")
+
+    def log_message(self, format, *args):
+        return
+
+
+def run_keepalive_server():
+    port = int(os.environ.get("PORT", 10000))
+    server = HTTPServer(("0.0.0.0", port), SimpleRequestHandler)
+    server.serve_forever()
+
+
 if __name__ == "__main__":
+    server_thread = threading.Thread(target=run_keepalive_server, daemon=True)
+    server_thread.start()
     scheduler = AsyncIOScheduler(timezone="Europe/Moscow")
     scheduler.start()
     executor.start_polling(dp, on_startup=on_startup)
-
-# БОЛЬШЕ ТГ БОТОВ НА CONFF.ORG
-# Наш telegram канал @tg_inc_softw
