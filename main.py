@@ -19,7 +19,6 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from aiogram.dispatcher import FSMContext
 from aiogram.types import ParseMode
-from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 from keyboards import *
 from config import *
@@ -32,7 +31,7 @@ admin_id = admins
 chatid = chat
 storage = MemoryStorage()
 dp = Dispatcher(bot, storage=storage)
-scheduler = AsyncIOScheduler()
+scheduler = AsyncIOScheduler(timezone="Europe/Moscow")
 db = Sqliter('database.db')
 
 category_list = {'films': 'Filmlar', 'serials' : 'Seriallar','series' : 'Seriallar', 'cartoons':'Multfilmlar', 'cartoon':'Multfilmlar', 'cartoon-serials' : 'Multseriallar', 'cartoon-series': 'Multseriallar', 'anime-film': 'Anime filmlar', 'anime' : 'Anime filmlar', 'anime-serials' : 'Anime seriallar', 'anime-series' : 'Anime seriallar', 'tv-shows' : 'TV-shou', 'tv-show': 'TV-shou', 'film': 'Filmlar'}
@@ -2469,6 +2468,7 @@ async def on_startup(dp: Dispatcher):
     scheduler.add_job(update_popular_show, 'cron', hour=5, minute=40)
     scheduler.add_job(update_collections_films, 'cron', hour=7, minute=10)
     scheduler.add_job(update_collections, 'cron', hour=23, minute=40)
+    scheduler.start()
 
 class SimpleRequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -2490,6 +2490,4 @@ def run_keepalive_server():
 if __name__ == "__main__":
     server_thread = threading.Thread(target=run_keepalive_server, daemon=True)
     server_thread.start()
-    scheduler = AsyncIOScheduler(timezone="Europe/Moscow")
-    scheduler.start()
     executor.start_polling(dp, on_startup=on_startup)
