@@ -597,6 +597,7 @@ async def update_collections_films():
     await bot.send_message(chat_id=chatid, text=f'✅ <b>{current_date}</b> | <b>«To‘plamlar»</b> bo‘limini yangilash muvaffaqiyatli yakunlandi.\n🎬 Qo‘shilgan video soni: <b>{new_films_count}</b>.\n\n👉 @kinozzz_new_bot')
     print('update_collections_films | Parslash yakunlandi.')
 
+@dp.message_handler(commands=[start])
 async def send_welcome(message: types.Message, state: FSMContext):
     await state.finish()
     file = open('users_id.txt', 'r')
@@ -2450,6 +2451,7 @@ async def back(call: types.CallbackQuery, state: FSMContext):
     await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '🏠 Siz <b>asosiy menyuga</b> qaytdingiz.\n\n<a href="https://bot.kinozzz.ru/poster/general.png">🎦</a> Bu yerda siz ko‘rmoqchi bo‘lgan videoni tanlash yoki qidirish uchun kerakli <b>bo‘lim</b>ni tanlashingiz mumkin.', reply_markup=inlinekeyboard, inline_message_id=call.inline_message_id)
 
 async def on_startup(dp: Dispatcher):
+    await bot.delete_webhook(drop_pending_updates=True)
     print('~~~ Kinozzz Bot muvaffaqiyatli ishga tushdi! ~~~')
     #await bot.send_message(chat_id=admin_id, text='🚀 <b>Kinozzz Bot</b> успешно запущен!\nОтправьте <b>/start</b> для обновления.')
     # await update_popular_anime()
