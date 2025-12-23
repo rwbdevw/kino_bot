@@ -10,95 +10,95 @@
         ],
         [
             3,
-            "Рождественские"
+            "Rojdestvo filmlari"
         ],
         [
             4,
-            "Ситкомы"
+            "Sitkomlar"
         ],
         [
             5,
-            "С наградами"
+            "Mukofotli"
         ],
         [
             7,
-            "Фильмы-катастрофы"
+            "Falokat filmlari"
         ],
         [
             11,
-            "Для женщин"
+            "Ayollar uchun"
         ],
         [
             12,
-            "Для мужчин"
+            "Erkaklar uchun"
         ],
         [
             13,
-            "С неожиданным концом"
+            "Kutilmagan yakunli"
         ],
         [
             14,
-            "Для взрослых"
+            "Kattalar uchun"
         ],
         [
             16,
-            "Про боевые искусства"
+            "Jang san'ati haqida"
         ],
         [
             17,
-            "Про вампиров"
+            "Vampirlar haqida"
         ],
         [
             18,
-            "Про животных"
+            "Hayvonlar haqida"
         ],
         [
             19,
-            "Про ограбления, аферы и мошенников"
+            "O‘g‘irlik, firibgarlik va qaroqchilar haqida"
         ],
         [
             21,
-            "Для молодёжи"
+            "Yoshlar uchun"
         ],
         [
             22,
-            "Про призраков"
+            "Ruhlar haqida"
         ],
         [
             25,
-            "Про маньяков"
+            "Manyaklar haqida"
         ],
         [
             26,
-            "Про монстров"
+            "Monsterlar haqida"
         ],
         [
             27,
-            "Про жизнь"
+            "Hayot haqida"
         ],
         [
             28,
-            "Про космос"
+            "Koinot haqida"
         ],
         [
             29,
-            "Психологические"
+            "Psixologik"
         ],
         [
             33,
-            "Экранизация книг"
+            "Kitob ekranizatsiyalari"
         ],
         [
             34,
-            "Мотивирующие"
+            "Motivatsion"
         ],
         [
             35,
-            "Самые кассовые"
+            "Eng kassabop"
         ],
         [
             36,
-            "Романтические комедии"
+            "Romantik komediyalar"
         ],
         [
             37,
@@ -106,11 +106,11 @@
         ],
         [
             38,
-            "Про любовь"
+            "Muhabbat haqida"
         ],
         [
             39,
-            "На реальных событиях"
+            "Haqiqiy voqealarga asoslangan"
         ],
         [
             40,
@@ -118,143 +118,143 @@
         ],
         [
             42,
-            "Про супергероев"
+            "Superqahramonlar haqida"
         ],
         [
             43,
-            "Про подростков"
+            "O‘smirlar haqida"
         ],
         [
             45,
-            "Фильмы на Хэллоуин"
+            "Helouin filmlari"
         ],
         [
             46,
-            "Советские"
+            "Sovet"
         ],
         [
             50,
-            "Про агентов"
+            "Agentlar haqida"
         ],
         [
             51,
-            "Про зомби"
+            "Zombilar haqida"
         ],
         [
             54,
-            "Про оборотней"
+            "Oborotenlar haqida"
         ],
         [
             56,
-            "Про тюрьму"
+            "Habsxona haqida"
         ],
         [
             57,
-            "Про мафию, банды"
+            "Mafiya va to‘dalar haqida"
         ],
         [
             59,
-            "Про ведьм"
+            "Jodugarlar haqida"
         ],
         [
             62,
-            "Про полицию"
+            "Politsiya haqida"
         ],
         [
             65,
-            "Антиутопии"
+            "Antiutopiyalar"
         ],
         [
             68,
-            "Про роботов"
+            "Robotlar haqida"
         ],
         [
             69,
-            "Про войну 1939-1945"
+            "1939–1945 urushi haqida"
         ],
         [
             70,
-            "Про инопланетян"
+            "Begona sayyoraliklar haqida"
         ],
         [
             71,
-            "Про путешествия"
+            "Sayohat haqida"
         ],
         [
             73,
-            "Про девушек"
+            "Qizlar haqida"
         ],
         [
             74,
-            "Про школу"
+            "Maktab haqida"
         ],
         [
             75,
-            "Про футбол"
+            "Futbol haqida"
         ],
         [
             76,
-            "Про спорт"
+            "Sport haqida"
         ],
         [
             77,
-            "Лучшие фильмы 20 века"
+            "20-asrning eng yaxshi filmlari"
         ],
         [
             78,
-            "Биографии"
+            "Biografiyalar"
         ],
         [
             79,
-            "Про детей"
+            "Bolalar haqida"
         ],
         [
             80,
-            "Про акул"
+            "Akulalar haqida"
         ],
         [
             81,
-            "Про звезд"
+            "Yulduzlar haqida"
         ],
         [
             82,
-            "Молодежные комедии"
+            "Yoshlar komediyalari"
         ],
         [
             83,
-            "Про танки"
+            "Tanklar haqida"
         ],
         [
             87,
-            "Про снайперов"
+            "Snayperlar haqida"
         ],
         [
             88,
-            "Про острова"
+            "Orollar haqida"
         ],
         [
             91,
-            "Про динозавров"
+            "Dinozavrlar haqida"
         ],
         [
             92,
-            "Про бывших"
+            "Sobiq sevgililar haqida"
         ],
         [
             93,
-            "Про средневековье"
+            "O‘rta asrlar haqida"
         ],
         [
             94,
-            "Про гонки"
+            "Poygalar haqida"
         ],
         [
             95,
-            "Про апокалипсис"
+            "Apokalipsis haqida"
         ],
         [
             96,
-            "Про путешествия во времени"
+            "Vaqt sayohati haqida"
         ],
         [
             97,
@@ -266,11 +266,11 @@
         ],
         [
             99,
-            "Про драконов"
+            "Ajdarlar haqida"
         ],
         [
             100,
-            "Про докторов"
+            "Shifokorlar haqida"
         ],
         [
             101,
@@ -326,7 +326,7 @@
         ],
         [
             114,
-            "Лауреат премии \"Оскар\""
+            "Oskar mukofoti sohiblari"
         ],
         [
             115,
@@ -354,11 +354,11 @@
         ],
         [
             121,
-            "Музыкальные"
+            "Musiqiy"
         ],
         [
             122,
-            "Про баскетбол"
+            "Basketbol haqida"
         ],
         [
             123,
@@ -370,11 +370,11 @@
         ],
         [
             125,
-            "Кулинария"
+            "Oshpazlik"
         ],
         [
             126,
-            "Про Чернобыльскую катастрофу"
+            "Chernobil falokati haqida"
         ],
         [
             127,
