@@ -20,6 +20,9 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from aiogram.dispatcher import FSMContext
 from aiogram.types import ParseMode
 
+from PIL import Image, ImageDraw, ImageFont
+import io
+
 from keyboards import *
 from config import *
 from pagination import InlinePagination, InlinePagination2, FavoritesPagination, NewsPagination
@@ -2474,6 +2477,55 @@ async def on_startup(dp: Dispatcher):
 
 class SimpleRequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
+        # Dynamic Uzbek overlay posters
+        if self.path.startswith("/poster/") and self.path.endswith(".png"):
+            name = self.path.split("/")[-1]
+            title_map = {
+                "main.png": "ASOSIY MENYU",
+                "popmenu.png": "MASHHUR",
+                "news.png": "YANGILIKLAR",
+                "poisk.png": "QIDIRISH",
+                "search_name.png": "NOMI BO‘YICHA QIDIRISH",
+                "search_id.png": "ID BO‘YICHA QIDIRISH",
+                "collection.png": "TO‘PLAMLAR",
+                "film.png": "FILM QIDIRISH",
+                "serial.png": "SERIAL QIDIRISH",
+                "anime.png": "ANIME QIDIRISH",
+                "nosearch.png": "TOPILMADI",
+                "general.png": "ASOSIY MENYU",
+                "about.png": "BOT HAQIDA",
+                "contacts.png": "ALOQA",
+                "error.png": "XATO",
+            }
+            title = title_map.get(name)
+            if title:
+                try:
+                    img = Image.new("RGB", (800, 420), (20, 22, 26))
+                    draw = ImageDraw.Draw(img)
+                    try:
+                        font = ImageFont.truetype("DejaVuSans-Bold.ttf", 48)
+                    except Exception:
+                        font = ImageFont.load_default()
+                    tw, th = draw.textsize(title, font=font)
+                    x = (800 - tw) // 2
+                    y = (420 - th) // 2
+                    draw.text((x, y), title, font=font, fill=(255, 255, 255))
+                    bio = __import__('io').BytesIO()
+                    img.save(bio, format="PNG")
+                    data = bio.getvalue()
+                    self.send_response(200)
+                    self.send_header("Content-type", "image/png")
+                    self.send_header("Cache-Control", "public, max-age=3600")
+                    self.send_header("Content-Length", str(len(data)))
+                    self.end_headers()
+                    self.wfile.write(data)
+                    return
+                except Exception:
+                    pass
+            self.send_response(404)
+            self.end_headers()
+            return
+        # Health check
         self.send_response(200)
         self.send_header('Content-type', 'text/plain; charset=utf-8')
         self.end_headers()
