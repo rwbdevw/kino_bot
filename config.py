@@ -9,6 +9,6 @@ load_dotenv()
 TOKEN = os.getenv('BOT_TOKEN', '')
 admins = int(os.getenv('ADMINS', '6145787382'))
 chat = int(os.getenv('CHAT_ID', '-1002382967806'))
-POSTER_BASE_URL = os.getenv('POSTER_BASE_URL', 'https://bot.kinozzz.ru/poster/')
+POSTER_BASE_URL = os.getenv('POSTER_BASE_URL') or 'https://bot.kinozzz.ru/poster/'
 
 # Наш telegram канал - @End_Soft
