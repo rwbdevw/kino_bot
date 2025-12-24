@@ -597,7 +597,7 @@ async def update_collections_films():
     await bot.send_message(chat_id=chatid, text=f'✅ <b>{current_date}</b> | <b>«To‘plamlar»</b> bo‘limini yangilash muvaffaqiyatli yakunlandi.\n🎬 Qo‘shilgan video soni: <b>{new_films_count}</b>.\n\n👉 @kinozzz_new_bot')
     print('update_collections_films | Parslash yakunlandi.')
 
-@dp.message_handler(commands=[start])
+@dp.message_handler(commands=['start'])
 async def send_welcome(message: types.Message, state: FSMContext):
     await state.finish()
     file = open('users_id.txt', 'r')
