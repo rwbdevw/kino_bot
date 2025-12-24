@@ -608,19 +608,19 @@ async def send_welcome(message: types.Message, state: FSMContext):
         datausers.add(message.from_user.id)
         current_date = date.today()
         db.db_table_val(user_id=message.from_user.id, user_name=message.from_user.username, user_register=current_date)
-    text = f'<a href="https://bot.kinozzz.ru/poster/main.png">🎞️</a>
+    text = f'<a href="{POSTER_BASE_URL}main.png">🎞️</a>
 <b>ASOSIY MENYU</b>
 <b><u>Kinozzz Bot</u></b> — o‘ziga xos kino-bot bo‘lib, sizga <b>bepul</b> tarzda <b>mahalliy</b> va <b>xorijiy</b> kinoning yangiliklaridan <u>istalgan qurilmadan</u> bahramand bo‘lish imkonini beradi.\n\nKo‘proq botlar CONFF.ORG saytida.'
     await bot.send_message(message.from_user.id, f'{text}', reply_markup=inlinekeyboard)
 
 @dp.callback_query_handler(text="popular_menu", state="*")
 async def popular_menu(call: types.CallbackQuery):
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/popmenu.png">🚀</a> Siz <b>«Mashhur»</b> bo‘limiga o‘tdingiz, bu yerda joriy yil uchun <b>ommalashgan</b> videomateriallar joylashgan.\n\n<i>👉 Tomosha qilish uchun <b>videomaterial</b> tanlamoqchi bo‘lgan <b>kategoriyani</b> tanlang.</i>', reply_markup=popular_menu_kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= f'<a href="{POSTER_BASE_URL}popmenu.png">🚀</a> Siz <b>«Mashhur»</b> bo‘limiga o‘tdingiz, bu yerda joriy yil uchun <b>ommalashgan</b> videomateriallar joylashgan.\n\n<i>👉 Tomosha qilish uchun <b>videomaterial</b> tanlamoqchi bo‘lgan <b>kategoriyani</b> tanlang.</i>', reply_markup=popular_menu_kb)
 
 # Yangiliklar (Filmlar)
 @dp.callback_query_handler(text="news_menu", state="*")
 async def news_menu(call: types.CallbackQuery):
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/news.png">🆕</a> Siz <b>«Yangiliklar»</b> bo‘limiga o‘tdingiz, bu yerda oxirgi sutka ichida <b>qo‘shilgan</b> yangi videomateriallar joylashgan.\n\n<i>👉 Tomosha qilish uchun <b>videomaterial</b> tanlamoqchi bo‘lgan <b>kategoriyani</b> tanlang.</i>', reply_markup=news_menu_kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= f'<a href="{POSTER_BASE_URL}news.png">🆕</a> Siz <b>«Yangiliklar»</b> bo‘limiga o‘tdingiz, bu yerda oxirgi sutka ichida <b>qo‘shilgan</b> yangi videomateriallar joylashgan.\n\n<i>👉 Tomosha qilish uchun <b>videomaterial</b> tanlamoqchi bo‘lgan <b>kategoriyani</b> tanlang.</i>', reply_markup=news_menu_kb)
 
 @dp.callback_query_handler(text="news_films", state="*")
 async def news_menu(call: types.CallbackQuery):
@@ -1341,11 +1341,11 @@ async def next(call: types.CallbackQuery):
 
 @dp.callback_query_handler(text="poisk", state="*")
 async def send(call: types.CallbackQuery):
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/poisk.png">🔍</a> Siz <b>«Qidirish»</b> bo‘limidasiz. Iltimos, foydalanmoqchi bo‘lgan <b>qidiruv turini</b> tanlang.', reply_markup=search)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= f'<a href="{POSTER_BASE_URL}poisk.png">🔍</a> Siz <b>«Qidirish»</b> bo‘limidasiz. Iltimos, foydalanmoqchi bo‘lgan <b>qidiruv turini</b> tanlang.', reply_markup=search)
 
 @dp.callback_query_handler(text="categories", state="*")
 async def send(call: types.CallbackQuery):
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/search_name.png">🔍</a> Siz <b>«Nomi bo‘yicha qidirish»</b> bo‘limidasiz. Iltimos, izlamoqchi bo‘lgan <b>kategoriyani</b> tanlang.', reply_markup=category)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= f'<a href="{POSTER_BASE_URL}search_name.png">🔍</a> Siz <b>«Nomi bo‘yicha qidirish»</b> bo‘limidasiz. Iltimos, izlamoqchi bo‘lgan <b>kategoriyani</b> tanlang.', reply_markup=category)
 
 @dp.callback_query_handler(text="collections")
 async def send(call: types.CallbackQuery):
@@ -1353,7 +1353,7 @@ async def send(call: types.CallbackQuery):
         collections = json.load(f)
     pagination = InlinePagination(button_datas=[(collection_items[1], collection_items[0]) for collection_items in collections['data']], width=2)
     kb = pagination.get_page_keyboard(cur_page=1)
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/collection.png">🎞️</a> Siz <b>«To‘plamlar»</b> bo‘limidasiz. Iltimos, ko‘rmoqchi bo‘lgan <b>to‘plam</b>ni tanlang.', reply_markup=kb)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= f'<a href="{POSTER_BASE_URL}collection.png">🎞️</a> Siz <b>«To‘plamlar»</b> bo‘limidasiz. Iltimos, ko‘rmoqchi bo‘lgan <b>to‘plam</b>ni tanlang.', reply_markup=kb)
 
 @dp.callback_query_handler(text="news")
 async def send(call: types.CallbackQuery):
@@ -1599,11 +1599,11 @@ async def back_pag(call: types.CallbackQuery):
 
 @dp.callback_query_handler(text="about", state="*")
 async def send(call: types.CallbackQuery):
-  await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/about.png">🎞️</a> <b><u>Kinozzz Bot</u></b> — <b>birinchi onlayn kinoteatr</b> Telegram’da, u sizga imkon beradi <b><u>bepul</u></b> yangiliklaridan bahramand bo‘lish <b>mahalliy</b> va <b>xorijiy</b> kinematografiyasi.\n\n💡 <b>Botning asosiy imkoniyatlari:</b>\n— Filmlar, seriallar, TV-shoular, multfilmlar va boshqalarni nomi bo‘yicha qulay qidirish;\n— <b>To‘plamlar</b> bo‘limi;\n— Funksiya <b>«Sevimlilarim»</b>, sevimli filmlar va seriallarni yoningizda saqlang;\n— Qulay pleyer;\n— Har bir videomaterialning yuqori sifati;\n— Har kuni yangilanishlar.', reply_markup=about)
+  await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= f'<a href="{POSTER_BASE_URL}about.png">🎞️</a> <b><u>Kinozzz Bot</u></b> — <b>birinchi onlayn kinoteatr</b> Telegram’da, u sizga imkon beradi <b><u>bepul</u></b> yangiliklaridan bahramand bo‘lish <b>mahalliy</b> va <b>xorijiy</b> kinematografiyasi.\n\n💡 <b>Botning asosiy imkoniyatlari:</b>\n— Filmlar, seriallar, TV-shoular, multfilmlar va boshqalarni nomi bo‘yicha qulay qidirish;\n— <b>To‘plamlar</b> bo‘limi;\n— Funksiya <b>«Sevimlilarim»</b>, sevimli filmlar va seriallarni yoningizda saqlang;\n— Qulay pleyer;\n— Har bir videomaterialning yuqori sifati;\n— Har kuni yangilanishlar.', reply_markup=about)
 
 @dp.callback_query_handler(text="contacts", state="*")
 async def send(call: types.CallbackQuery):
-  await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<b><a href="https://bot.kinozzz.ru/poster/contacts.png">🔥</a> Platformamiz uchun foydali bo‘ladigan yangi g‘oya va takliflarga doimo ochiqmiz!</b>\n\n📌 <i>Mualliflik huquqi bo‘yicha shikoyatlar bo‘lsa, e-mail orqali murojaat qiling: <b>admin@kinozzz.ru</b></i>', reply_markup=contacts)
+  await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= f'<b><a href="{POSTER_BASE_URL}contacts.png">🔥</a> Platformamiz uchun foydali bo‘ladigan yangi g‘oya va takliflarga doimo ochiqmiz!</b>\n\n📌 <i>Mualliflik huquqi bo‘yicha shikoyatlar bo‘lsa, e-mail orqali murojaat qiling: <b>admin@kinozzz.ru</b></i>', reply_markup=contacts)
 
 @dp.message_handler(commands=['stats'])
 async def statistic(message: types.Message):
@@ -1643,7 +1643,7 @@ async def send_all(message: types.Message):
 #Поиск по id
 @dp.callback_query_handler(text="search_id", state="*")
 async def send(call: types.CallbackQuery):
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/search_id.png">🆔</a> Iltimos, qidirish uchun <b>videomaterial ID</b> ni kiriting va yuboring.\n\n❗<i><b>Muhim:</b> noto‘g‘ri natijalarni oldini olish uchun ID ni to‘g‘ri kiriting.</i>', reply_markup=go_poisk)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= f'<a href="{POSTER_BASE_URL}search_id.png">🆔</a> Iltimos, qidirish uchun <b>videomaterial ID</b> ni kiriting va yuboring.\n\n❗<i><b>Muhim:</b> noto‘g‘ri natijalarni oldini olish uchun ID ni to‘g‘ri kiriting.</i>', reply_markup=go_poisk)
     await GetUserInfo.us_zapros_video.set()
     await call.answer()
     @dp.message_handler(state=GetUserInfo.us_zapros_video)
@@ -1693,7 +1693,7 @@ async def send(call: types.CallbackQuery):
 
 @dp.callback_query_handler(text="films", state="*")
 async def send(call: types.CallbackQuery):
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/film.png">🔎</a> Qidirish uchun <b>film</b>ning asl nomini kiriting.\n\n❗<i><b>Muhim:</b> to‘g‘ri qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard2)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= f'<a href="{POSTER_BASE_URL}film.png">🔎</a> Qidirish uchun <b>film</b>ning asl nomini kiriting.\n\n❗<i><b>Muhim:</b> to‘g‘ri qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard2)
     await GetUserInfo.us_zapros_film.set()
     await call.answer()
     @dp.message_handler(state=GetUserInfo.us_zapros_film)
@@ -1787,12 +1787,12 @@ async def send(call: types.CallbackQuery):
                     await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya: </b> {category_list[type]}\n<b>🎦 Janr:</b> {genre3}\n<b>🗓️ Yil:</b> {year}', reply_markup=play)
                     await state.finish()
             except:
-                await message.answer('<a href="https://bot.kinozzz.ru/poster/nosearch.png">😔</a> Bu nomga o‘xshash <b>film</b> topilmadi.\n\n❗<i>To‘g‘riroq qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard2)
+                await message.answer(f'<a href="{POSTER_BASE_URL}nosearch.png">😔</a> Bu nomga o‘xshash <b>film</b> topilmadi.\n\n❗<i>To‘g‘riroq qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard2)
                 await state.finish()
 
 @dp.callback_query_handler(text="serials", state="*")
 async def send(call: types.CallbackQuery):
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/serial.png">🔎</a> Qidirish uchun <b>serial</b>ning asl nomini kiriting.\n\n❗<i><b>Muhim:</b> to‘g‘ri qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard3)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= f'<a href="{POSTER_BASE_URL}serial.png">🔎</a> Qidirish uchun <b>serial</b>ning asl nomini kiriting.\n\n❗<i><b>Muhim:</b> to‘g‘ri qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard3)
     await GetUserInfo.us_zapros_serial.set()
     await call.answer()
     @dp.message_handler(state=GetUserInfo.us_zapros_serial)
@@ -1894,12 +1894,12 @@ async def send(call: types.CallbackQuery):
                     await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya: </b> {category_list[type]}\n<b>🎦 Janr:</b> {genre3}\n<b>🗓️ Yil:</b> {year}', reply_markup=play)
                     await state.finish()
             except:
-                await message.answer('<a href="https://bot.kinozzz.ru/poster/nosearch.png">😔</a> Bu nomga o‘xshash <b>serial</b> topilmadi.\n\n❗<i>To‘g‘riroq qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard3)
+                await message.answer(f'<a href="{POSTER_BASE_URL}nosearch.png">😔</a> Bu nomga o‘xshash <b>serial</b> topilmadi.\n\n❗<i>To‘g‘riroq qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard3)
                 await state.finish()
 
 @dp.callback_query_handler(text="anime_films", state="*")
 async def send(call: types.CallbackQuery):
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/anime.png">🔎</a> Qidirish uchun <b>anime filmi</b>ning asl nomini kiriting.\n\n❗<i><b>Muhim:</b> to‘g‘ri qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard4)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= f'<a href="{POSTER_BASE_URL}anime.png">🔎</a> Qidirish uchun <b>anime filmi</b>ning asl nomini kiriting.\n\n❗<i><b>Muhim:</b> to‘g‘ri qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard4)
     await GetUserInfo.us_zapros_animefilm.set()
     await call.answer()
     @dp.message_handler(state=GetUserInfo.us_zapros_animefilm)
@@ -2003,12 +2003,12 @@ async def send(call: types.CallbackQuery):
                     await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya: </b> {category_list[type]}\n<b>🎦 Janr:</b> {genre3}\n<b>🗓️ Yil:</b> {year}', reply_markup=play)
                     await state.finish()
             except:
-                await message.answer('<a href="https://bot.kinozzz.ru/poster/nosearch.png">😔</a> Bu nomga o‘xshash <b>anime film</b> topilmadi.\n\n❗<i>To‘g‘riroq qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard4)
+                await message.answer(f'<a href="{POSTER_BASE_URL}nosearch.png">😔</a> Bu nomga o‘xshash <b>anime film</b> topilmadi.\n\n❗<i>To‘g‘riroq qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard4)
                 await state.finish()
 
 @dp.callback_query_handler(text="cartoon_serials", state="*")
 async def send(call: types.CallbackQuery):
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/mserial.png">🔎</a> Qidirish uchun <b>anime serial</b>ning asl nomini kiriting.\n\n❗<i><b>Muhim:</b> to‘g‘ri qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard5)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= f'<a href="{POSTER_BASE_URL}mserial.png">🔎</a> Qidirish uchun <b>anime serial</b>ning asl nomini kiriting.\n\n❗<i><b>Muhim:</b> to‘g‘ri qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard5)
     await GetUserInfo.us_zapros_cartoonser.set()
     await call.answer()
     @dp.message_handler(state=GetUserInfo.us_zapros_cartoonser)
@@ -2113,12 +2113,12 @@ async def send(call: types.CallbackQuery):
                     await state.finish()
             except Exception as ex:
                 print(ex)
-                await message.answer('<a href="https://bot.kinozzz.ru/poster/nosearch.png">😔</a> Bu nomga o‘xshash <b>multserial</b> topilmadi.\n\n❗<i>To‘g‘riroq qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard5)
+                await message.answer(f'<a href="{POSTER_BASE_URL}nosearch.png">😔</a> Bu nomga o‘xshash <b>multserial</b> topilmadi.\n\n❗<i>To‘g‘riroq qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard5)
                 await state.finish()
 
 @dp.callback_query_handler(text="cartoon", state="*")
 async def send(call: types.CallbackQuery):
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/mfilm.png">🔎</a> Qidirish uchun <b>multfilm</b>ning asl nomini kiriting.\n\n❗<i><b>Muhim:</b> to‘g‘ri qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard6)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= f'<a href="{POSTER_BASE_URL}mfilm.png">🔎</a> Qidirish uchun <b>multfilm</b>ning asl nomini kiriting.\n\n❗<i><b>Muhim:</b> to‘g‘ri qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard6)
     await GetUserInfo.us_zapros_cartoon.set()
     await call.answer()
     @dp.message_handler(state=GetUserInfo.us_zapros_cartoon)
@@ -2222,12 +2222,12 @@ async def send(call: types.CallbackQuery):
                     await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya: </b> {category_list[type]}\n<b>🎦 Janr:</b> {genre3}\n<b>🗓️ Yil:</b> {year}', reply_markup=play)
                     await state.finish()
             except:
-                await message.answer('<a href="https://bot.kinozzz.ru/poster/nosearch.png">😔</a> Bu nomga o‘xshash <b>multfilm</b> topilmadi.\n\n❗<i>To‘g‘riroq qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard6)
+                await message.answer(f'<a href="{POSTER_BASE_URL}nosearch.png">😔</a> Bu nomga o‘xshash <b>multfilm</b> topilmadi.\n\n❗<i>To‘g‘riroq qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard6)
                 await state.finish()
 
 @dp.callback_query_handler(text="anime_serials", state="*")
 async def send(call: types.CallbackQuery):
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/anime.png">🔎</a> Qidirish uchun <b>anime serial</b>ning asl nomini kiriting.\n\n❗<i><b>Muhim:</b> to‘g‘ri qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard7)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= f'<a href="{POSTER_BASE_URL}anime.png">🔎</a> Qidirish uchun <b>anime serial</b>ning asl nomini kiriting.\n\n❗<i><b>Muhim:</b> to‘g‘ri qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard7)
     await GetUserInfo.us_zapros_animeser.set()
     await call.answer()
     @dp.message_handler(state=GetUserInfo.us_zapros_animeser)
@@ -2331,12 +2331,12 @@ async def send(call: types.CallbackQuery):
                     await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya: </b> {category_list[type]}\n<b>🎦 Janr:</b> {genre3}\n<b>🗓️ Yil:</b> {year}', reply_markup=play)
                     await state.finish()
             except:
-                await message.answer('<a href="https://bot.kinozzz.ru/poster/nosearch.png">😔</a> Bu nomga o‘xshash <b>anime serial</b> topilmadi.\n\n❗<i>To‘g‘riroq qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard7)
+                await message.answer(f'<a href="{POSTER_BASE_URL}nosearch.png">😔</a> Bu nomga o‘xshash <b>anime serial</b> topilmadi.\n\n❗<i>To‘g‘riroq qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard7)
                 await state.finish()
 
 @dp.callback_query_handler(text="tv", state="*")
 async def send(call: types.CallbackQuery):
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '<a href="https://bot.kinozzz.ru/poster/show.png">🔎</a> Qidirish uchun <b>TV-shou</b>ning asl nomini kiriting.\n\n❗<i><b>Muhim:</b> to‘g‘ri qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard8)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= f'<a href="{POSTER_BASE_URL}show.png">🔎</a> Qidirish uchun <b>TV-shou</b>ning asl nomini kiriting.\n\n❗<i><b>Muhim:</b> to‘g‘ri qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard8)
     await GetUserInfo.us_zapros_tv.set()
     await call.answer()
     @dp.message_handler(state=GetUserInfo.us_zapros_tv)
@@ -2440,17 +2440,17 @@ async def send(call: types.CallbackQuery):
                     await bot.send_message(message.from_user.id, f'<b><a href="{poster}">▶️</a> Nomi:</b> {name}\n<b>🏅 KinoPoisk:</b> {kinopoisk} | <b>IMDb:</b> {imdb}\n<b>🌍 Mamlakat:</b> {country}\n<b>📀 Sifat:</b> {quality}\n<b>📁 Kategoriya: </b> {category_list[type]}\n<b>🎦 Janr:</b> {genre3}\n<b>🗓️ Yil:</b> {year}', reply_markup=play)
                     await state.finish()
             except:
-                await message.answer('<a href="https://bot.kinozzz.ru/poster/nosearch.png">😔</a> Bu nomga o‘xshash <b>TV-shou</b> topilmadi.\n\n❗<i>To‘g‘riroq qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard8)
+                await message.answer(f'<a href="{POSTER_BASE_URL}nosearch.png">😔</a> Bu nomga o‘xshash <b>TV-shou</b> topilmadi.\n\n❗<i>To‘g‘riroq qidiruv uchun nomni aniq kiriting.</i>', reply_markup=inlinekeyboard8)
                 await state.finish()
 
 @dp.message_handler(content_types=['text'])
 async def send_all(message):
-  await bot.send_message(message.from_user.id, f'❗Kechirasiz, so‘rovingiz tanilmadi!\n\n<a href="https://bot.kinozzz.ru/poster/error.png">🏠</a> <i><b>Asosiy menyu</b>ga qayting</i>.', reply_markup=exit)
+  await bot.send_message(message.from_user.id, f'❗Kechirasiz, so‘rovingiz tanilmadi!\n\n<a href="{POSTER_BASE_URL}error.png">🏠</a> <i><b>Asosiy menyu</b>ga qayting</i>.', reply_markup=exit)
 
 @dp.callback_query_handler(text="back", state="*")
 async def back(call: types.CallbackQuery, state: FSMContext):
     await state.finish()
-    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= '🏠 Siz <b>asosiy menyuga</b> qaytdingiz.\n\n<a href="https://bot.kinozzz.ru/poster/general.png">🎦</a> Bu yerda siz ko‘rmoqchi bo‘lgan videoni tanlash yoki qidirish uchun kerakli <b>bo‘lim</b>ni tanlashingiz mumkin.', reply_markup=inlinekeyboard, inline_message_id=call.inline_message_id)
+    await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text= f'🏠 Siz <b>asosiy menyuga</b> qaytdingiz.\n\n<a href="{POSTER_BASE_URL}general.png">🎦</a> Bu yerda siz ko‘rmoqchi bo‘lgan videoni tanlash yoki qidirish uchun kerakli <b>bo‘lim</b>ni tanlashingiz mumkin.', reply_markup=inlinekeyboard, inline_message_id=call.inline_message_id)
 
 async def on_startup(dp: Dispatcher):
     await bot.delete_webhook(drop_pending_updates=True)
