@@ -608,8 +608,8 @@ async def send_welcome(message: types.Message, state: FSMContext):
         datausers.add(message.from_user.id)
         current_date = date.today()
         db.db_table_val(user_id=message.from_user.id, user_name=message.from_user.username, user_register=current_date)
-    text = f'<a href="https://bot.kinozzz.ru/poster/main.png">🎞️</a> <b><u>Kinozzz Bot</u></b> — o‘ziga xos kino-bot bo‘lib, sizga <b>bepul</b> tarzda <b>mahalliy</b> va <b>xorijiy</b> kinoning yangiliklaridan <u>istalgan qurilmadan</u> bahramand bo‘lish imkonini beradi.\n\nKo‘proq botlar CONFF.ORG saytida.'
-    await bot.send_message(message.from_user.id, f'{text}', reply_markup=inlinekeyboard)
+    text = f'🎞️ <b><u>Kinozzz Bot</u></b> — o‘ziga xos kino-bot bo‘lib, sizga <b>bepul</b> tarzda <b>mahalliy</b> va <b>xorijiy</b> kinoning yangiliklaridan <u>istalgan qurilmadan</u> bahramand bo‘lish imkonini beradi.\n\nKo‘proq botlar CONFF.ORG saytida.'
+    await bot.send_message(message.from_user.id, f'{text}', reply_markup=inlinekeyboard, disable_web_page_preview=True)
 
 @dp.callback_query_handler(text="popular_menu", state="*")
 async def popular_menu(call: types.CallbackQuery):
